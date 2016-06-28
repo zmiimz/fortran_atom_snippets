@@ -1,0 +1,5386 @@
+'.source.fortran.modern, .source.fortran.free':
+   ##
+  'abs(x)':
+    'prefix': 'abs'
+    'description': ' intrinsic function returns absolute value'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/ABS.html#ABS'
+    'leftLabel': ''
+    'type': 'function'
+    'body': 'abs($1)'
+   ##
+  'abstract':
+    'prefix': 'abstract'
+    'description': ' for type or interface'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'abstract $1'
+   ##
+  'access = char-expr':
+    'prefix': 'access'
+    'description': ' specifier in the OPEN/INQUIRE statement:  "SEQUENTIAL", "DIRECT", or "STREAM" (or "UNDEFINED")'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'access=$1'
+   ##
+  'achar(i [, kind])':
+    'prefix': 'achar'
+    'description': ' function converts ascii code integer to character'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/ACHAR.html#ACHAR'
+    'leftLabel': ''
+    'body': 'achar($1)'
+   ##
+  'acos(x)':
+    'prefix': 'acos'
+    'description': ' function returns arccosine (inverse cosine)'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/ACOS.html#ACOS'
+    'leftLabel': ''
+    'body': 'acos($1)'
+   ##
+  'acosh(x)':
+    'prefix': 'acosh'
+    'description': ' function returns inverse hyperbolic cosine'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/ACOSH.html#ACOSH'
+    'leftLabel': ''
+    'body': 'acosh($1)'
+   ##
+  'action = char-expr':
+    'prefix': 'action'
+    'description': ' specifier in the OPEN/INQUIRE statement:  "READ", "WRITE", or "READWRITE". '
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'action=$1'
+   ##
+  'adjustl(string)':
+    'prefix': 'adjustl'
+    'description': 'adjust left, delete leading and insert trailing blanks'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/ADJUSTL.html#ADJUSTL'
+    'leftLabel': ''
+    'body': 'adjustl($1)'
+   ##
+  'adjustr(string)':
+    'prefix': 'adjustr'
+    'description': 'adjust right, delete trailing and insert leading blanks'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/ADJUSTR.html#ADJUSTR'
+    'leftLabel': ''
+    'body': 'adjustr($1)'
+   ##
+  'advance = char-expr':
+    'prefix': 'advance'
+    'description': ' specifier in a data transfer statement (READ,WRITE,PRINT): "YES" or "NO"'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'advance=$1'
+   ##
+  'aimag(complex z)':
+    'prefix': 'aimag'
+    'description': 'imaginary part of complex number'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/AIMAG.html#AIMAG'
+    'leftLabel': ''
+    'body': 'aimag($1)'
+   ##
+  'aint(real x,kind=)':
+    'prefix': 'aint'
+    'description': 'truncate to integer toward zero'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/AINT.html#AINT'
+    'leftLabel': ''
+    'body': 'aint($1 ,kind=)'
+   ##
+  'all(mask, dim)':
+    'prefix': 'all'
+    'description': 'test logical array mask along dimension dim:  .true. if all are true'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/ALL.html#ALL'
+    'leftLabel': ''
+    'body': 'all($1, $1)'
+   ##
+  'allocatable':
+    'prefix': 'allocatable'
+    'description': 'array type definition'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'allocatable $1'
+   ##
+  'allocate(a, stat=iostat,errmsg=message)':
+    'prefix': 'allocate      '
+    'description': 'allocate with full control'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'allocate($1, stat=iostat,errmsg=message)'
+   ##
+  'allocate(a, stat=err)':
+    'prefix': 'allocate     '
+    'description': 'allocate array and check for error'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '''
+     allocate($1, stat=err)
+     if (err /= 0) write(*,*) "$1: Allocation request denied"
+    '''
+   ##
+  'allocate(a)':
+    'prefix': 'allocate    '
+    'description': 'simple memory allocation'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'allocate($1)'
+   ##
+  'allocate(b, source=a)':
+    'prefix': 'allocate   '
+    'description': 'allocate b and initialize it from a'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'allocate ($1, source=$1)'
+   ##
+  'allocate(a,mold=b)':
+    'prefix': 'allocate  '
+    'description': 'shape and type only from b'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'allocate($1,mold=$1)'
+   ##
+  'allocate(b,source=a)':
+    'prefix': 'allocate '
+    'description': 'shape, type and values of b from a'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'allocate($1,source=$1)'
+   ##
+  'allocate(a1, mold=a2)':
+    'prefix': 'allocate'
+    'description': '!allocate a2 with rank from a1 without initialization'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'allocate ($1, mold=$1)'
+   ##
+  'allocated(array/scalar)':
+    'prefix': 'allocated'
+    'description': ' inquiry function - query allocation status of a variable'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/ALLOCATED.html#ALLOCATED'
+    'leftLabel': ''
+    'body': 'allocated($1)'
+   ##
+  '.and.':
+    'prefix': 'and'
+    'description': 'logical operation like in if( A .and. B)'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '.and. ($1)'
+   ##
+  'anint(real x ,kind=)':
+    'prefix': 'anint'
+    'description': 'round to nearest whole number (integer)'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/ANINT.html#ANINT'
+    'leftLabel': ''
+    'body': 'anint($1 ,kind=$1)'
+   ##
+  'any(mask, dim)':
+    'prefix': 'any'
+    'description': 'test logical array mask along dimension dim are  .true.'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/ANY.html#ANY'
+    'leftLabel': ''
+    'body': 'any($1, $1)'
+   ##
+  'asin(x)':
+    'prefix': 'asin'
+    'description': 'arcsine (inverse sine) function'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/ASIN.html#ASIN'
+    'leftLabel': ''
+    'body': 'asin($1)'
+   ##
+  'asinh(x)':
+    'prefix': 'asinh'
+    'description': 'inverse hyperbolic sine function'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/ASINH.html#ASINH'
+    'leftLabel': ''
+    'body': 'asinh($1)'
+   ##
+  'generic, public :: assignment(=) => $procedure_name':
+    'prefix': 'assignment'
+    'description': ' declare operator assignment overloading'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'generic, public :: assignment(=) => $1'
+   ##
+  'assignment_operator_copy(this_lhs,rhs)':
+    'prefix': 'assignment_operator_copy'
+    'description': ' overloaded assignment operator defined as generic, public :: assignment(=) => assignment_operator_copy'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '''
+        !-----------------------------------------------------------------------
+        !Subroutine is overloaded assignment operator generic, public :: assignment(=) => name
+        !-----------------------------------------------------------------------
+        elemental subroutine assignment_operator_copy(this,rhs)
+            implicit none
+            class($1), intent(inout) :: this ! LHS
+            type($2), intent(in) :: rhs ! RHS
+            !copy everything from right side to the left
+            this % $3 = rhs % $4
+        end subroutine assignment_operator_copy
+    '''
+   ##
+  'associate(p1=>t1,p2=>t2)':
+    'prefix': 'associate'
+    'description': 'multiple association block  for pointers with targets'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '''
+        associate ($1 => $1,)
+        !use pointers here
+
+        end associate
+    '''
+   ##
+  'associated(pointer [,target])':
+    'prefix': 'associated'
+    'description': ' query pointer association status: true if pointer is associated with target'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/ASSOCIATED.html#ASSOCIATED'
+    'leftLabel': ''
+    'body': 'associated($1, $1)'
+   ##
+  'asynchronous = char-constant-expr':
+    'prefix': 'asynchronous'
+    'description': ' specifier in OPEN/INQUIRE or in data transfer statement (READ,WRITE,PRINT): "YES" or "NO"'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'asynchronous=$1'
+   ##
+  'atan(x [,y])':
+    'prefix': 'atan'
+    'description': 'inverse tangent function -Pi/2≤result≤Pi/2 '
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/ATAN.html#ATAN'
+    'leftLabel': ''
+    'body': 'atan($1)'
+   ##
+  'atan2(x)':
+    'prefix': 'atan2'
+    'description': 'inverse tangent function but in  -Pi≤result≤Pi'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/ATAN2.html#ATAN2'
+    'leftLabel': ''
+    'body': 'atan2($1)'
+   ##
+  'atanh(x)':
+    'prefix': 'atanh'
+    'description': 'inverse hyperbolic tangent function of x.'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/ATANH.html#ATANH'
+    'leftLabel': ''
+    'body': 'atanh($1)'
+   ##
+  'atomic_add(ATOM, VALUE [, STAT])':
+    'prefix': 'atomic_add'
+    'description': ' (ATOM, VALUE) atomically adds the value of VAR to the variable ATOM'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/ATOMIC_005fADD.html#ATOMIC_005fADD'
+    'leftLabel': ''
+    'body': 'call atomic_add($1,$2)'
+   ##
+  'atomic_and(ATOM, VALUE [, STAT])':
+    'prefix': 'atomic_and'
+    'description': ' atomically defines ATOM with the bitwise AND between the values of ATOM and VALUE'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/ATOMIC_005fAND.html#ATOMIC_005fAND'
+    'leftLabel': ''
+    'body': 'call atomic_and($1,$2)'
+   ##
+  'atomic_cas(ATOM, OLD, COMPARE, NEW [, STAT])':
+    'prefix': 'atomic_cas'
+    'description': ' compares the variable ATOM with the value of COMPARE; if the value is the same, ATOM is set to the value of NEW'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/ATOMIC_005fCAS.html#ATOMIC_005fCAS'
+    'leftLabel': ''
+    'body': 'call atomic_cas($1,$2)'
+   ##
+  'atomic_define(ATOM, VALUE [, STAT])':
+    'prefix': 'atomic_define'
+    'description': ' subroutine defines a variable atomically'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/ATOMIC_005fDEFINE.html#ATOMIC_005fDEFINE'
+    'leftLabel': ''
+    'body': 'call atomic_define($1,$2)'
+   ##
+  'atomic_fetch_add(ATOM, VALUE, old [, STAT])':
+    'prefix': 'atomic_fetch_add'
+    'description': ' atomically stores the value of ATOM in OLD and adds the value of VAR to the variable ATOM'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/ATOMIC_005fFETCH_005fADD.html#ATOMIC_005fFETCH_005fADD'
+    'leftLabel': ''
+    'body': 'call atomic_fetch_add($1,$2)'
+   ##
+  'atomic_fetch_and(ATOM, VALUE, OLD [, STAT])':
+    'prefix': 'atomic_fetch_and'
+    'description': ' atomically stores the value of ATOM in OLD and defines ATOM with the bitwise AND between the values of ATOM and VALUE'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/ATOMIC_005fFETCH_005fAND.html#ATOMIC_005fFETCH_005fAND'
+    'leftLabel': ''
+    'body': 'call atomic_fetch_and($1,$2)'
+   ##
+  'atomic_fetch_or(ATOM, VALUE, OLD [, STAT])':
+    'prefix': 'atomic_fetch_or'
+    'description': ' atomically stores the value of ATOM in OLD and defines ATOM with the bitwise OR between the values of ATOM and VALUE'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/ATOMIC_005fFETCH_005fOR.html#ATOMIC_005fFETCH_005fOR'
+    'leftLabel': ''
+    'body': 'call atomic_fetch_or($1,$2)'
+   ##
+  'atomic_fetch_xor(ATOM, VALUE, OLD [, STAT])':
+    'prefix': 'atomic_fetch_xor'
+    'description': ' atomically stores the value of ATOM in OLD and defines ATOM with the bitwise XOR between the values of ATOM and VALUE'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/ATOMIC_005fFETCH_005fXOR.html#ATOMIC_005fFETCH_005fXOR'
+    'leftLabel': ''
+    'body': 'call atomic_fetch_xor($1,$2)'
+   ##
+  'atomic_int_kind':
+    'prefix': 'atomic_int_kind'
+    'description': ' default integer scalar constant for which the processor supports atomic operations specified by atomic subroutines'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'atomic_int_kind $1'
+   ##
+  'atomic_logical_kind':
+    'prefix': 'atomic_logical_kind'
+    'description': ' default logical scalar constant for which the processor supports atomic operations specified by atomic subroutines.'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'atomic_logical_kind $1'
+   ##
+  'atomic_or(ATOM, VALUE [, STAT])':
+    'prefix': 'atomic_or'
+    'description': ' atomically defines ATOM with the bitwise AND between the values of ATOM and VALUE'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/ATOMIC_005fOR.html#ATOMIC_005fOR'
+    'leftLabel': ''
+    'body': 'call atomic_or($1,$2)'
+   ##
+  'atomic_ref(VALUE, ATOM [, STAT])':
+    'prefix': 'atomic_ref'
+    'description': ' subroutine references a variable atomically'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/ATOMIC_005fREF.html#ATOMIC_005fREF'
+    'leftLabel': ''
+    'body': 'call atomic_ref($1,$2)'
+   ##
+  'atomic_xor(ATOM, VALUE [, STAT])':
+    'prefix': 'atomic_xor'
+    'description': ' atomically defines ATOM with the bitwise XOR between the values of ATOM and VALUE'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/ATOMIC_005fXOR.html#ATOMIC_005fXOR'
+    'leftLabel': ''
+    'body': 'call atomic_xor($1,$2)'
+   ##
+  'backspace(unit,iostat=)':
+    'prefix': 'backspace'
+    'description': ' statement sets file position before current or preceding record'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'backspace($1,iostat=$2)'
+   ##
+  'bessel_j0(x)':
+    'prefix': 'bessel_j0'
+    'description': 'Bessel function of first kind and order zero'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/BESSEL_005fJ0.html#BESSEL_005fJ0'
+    'leftLabel': ''
+    'body': 'bessel_j0($1)'
+   ##
+  'bessel_j1(x)':
+    'prefix': 'bessel_j1'
+    'description': 'Bessel function of first kind and order one'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/BESSEL_005fJ1.html#BESSEL_005fJ1'
+    'leftLabel': ''
+    'body': 'bessel_j1($1)'
+   ##
+  'bessel_jn(n1, n2, x)':
+    'prefix': 'bessel_jn '
+    'description': 'values of Bessel function of first kind and orders from n1 to n2'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/BESSEL_005fJN.html#BESSEL_005fJN'
+    'leftLabel': ''
+    'body': 'bessel_jn($1, , )'
+   ##
+  'bessel_jn(n,x)':
+    'prefix': 'bessel_jn'
+    'description': 'Bessel function of first kind and order n'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/BESSEL_005fJN.html#BESSEL_005fJN'
+    'leftLabel': ''
+    'body': 'bessel_jn($1, )'
+   ##
+  'bessel_y0(x)':
+    'prefix': 'bessel_y0'
+    'description': 'Bessel function of second kind and order zero'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/BESSEL_005fY0.html#BESSEL_005fY0'
+    'leftLabel': ''
+    'body': 'bessel_y0($1)'
+   ##
+  'bessel_y1(x)':
+    'prefix': 'bessel_y1'
+    'description': 'Bessel function of second kind and order one'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/BESSEL_005fY1.html#BESSEL_005fY1'
+    'leftLabel': ''
+    'body': 'bessel_y1($1)'
+   ##
+  'bessel_yn(n1, n2, x)':
+    'prefix': 'bessel_yn '
+    'description': 'values of Bessel function of second kind and orders from n1 to n2'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/BESSEL_005fYN.html#BESSEL_005fYN'
+    'leftLabel': ''
+    'body': 'bessel_yn($1, , )'
+   ##
+  'bessel_yn(n,x)':
+    'prefix': 'bessel_yn'
+    'description': 'Bessel function of second kind and order n'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/BESSEL_005fYN.html#BESSEL_005fYN'
+    'leftLabel': ''
+    'body': 'bessel_yn($1, )'
+   ##
+  'bge(i,j)':
+    'prefix': 'bge'
+    'description': '    !true if  bitwise (i >= j)  greater than or equal to'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/BGE.html#BGE'
+    'leftLabel': ''
+    'body': 'bge($1, )'
+   ##
+  'bgt(i,j)':
+    'prefix': 'bgt'
+    'description': '    !true if  bitwise (i > j) bitwise greater than'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/BGT.html#BGT'
+    'leftLabel': ''
+    'body': 'bgt($1, )'
+   ##
+  'bind(c, name=\' c_func\')':
+    'prefix': 'bind '
+    'description': 'define interoperable with C and add binding label'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'bind(c, name=\'$1\')'
+   ##
+  'bind(c)':
+    'prefix': 'bind'
+    'description': 'define type interoperable with C'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'bind(c) $1'
+   ##
+  'bit_size(i)':
+    'prefix': 'bit_size'
+    'description': 'maximum number of bits in an integer i'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/BIT_005fSIZE.html#BIT_005fSIZE'
+    'leftLabel': ''
+    'body': 'bit_size($1)'
+   ##
+  'blank = char-expr':
+    'prefix': 'blank'
+    'description': ' specifier  in OPEN/INQUIRE or in data transfer statement (READ,WRITE,PRINT):  "NULL" or "ZERO"'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'blank=$1'
+   ##
+  'ble(i,j)':
+    'prefix': 'ble'
+    'description': 'true if bitwise (i <= j) bitwise less than or equal to'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/BLE.html#BLE'
+    'leftLabel': ''
+    'body': 'ble($1, )'
+   ##
+  'block':
+    'prefix': 'block '
+    'description': ' block .. end block'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '''
+     block
+     $1 ::
+     end block
+    '''
+   ##
+  'block':
+    'prefix': 'block'
+    'description': ' named block .. end block'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '''
+     $1 : block
+     ::
+     end block $1'
+    '''
+   ##
+  'blockdata ... end blockdata':
+    'prefix': 'blockdata'
+    'description': ' block data program unit is used to provide initial values for data objects in named common blocks'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '''
+        block data $1
+          $2
+        end block data $1
+    '''
+   ##
+  'blt(i,j)':
+    'prefix': 'blt'
+    'description': 'true if bitwise (i<j) bitwise less than'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/BLT.html#BLT'
+    'leftLabel': ''
+    'body': 'blt($1, )'
+   ##
+  'btest(i,pos)':
+    'prefix': 'btest'
+    'description': 'true if a single bit pos of integer i has value 1'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/BTEST.html#BTEST'
+    'leftLabel': ''
+    'body': 'btest($1, )'
+   ##
+  'c_alert':
+    'prefix': 'c_alert'
+    'description': 'named constant of type character and kind c_char from iso_c_binding module'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/ISO_005fC_005fBINDING.html#ISO_005fC_005fBINDING'
+    'leftLabel': ''
+    'body': 'c_alert $1'
+   ##
+  'c_associated(c_ptr1,c_ptr2)':
+    'prefix': 'c_associated'
+    'description': 'inquiry function for scalars of type c_ptr or c_funptr, false if c_ptr1 is a C null pointer or if c_ptr2 is present with a different value'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/C_005fASSOCIATED.html#C_005fASSOCIATED'
+    'leftLabel': ''
+    'body': 'c_associated($1, )'
+   ##
+  'c_backspace':
+    'prefix': 'c_backspace'
+    'description': 'named constant of type character and kind c_char from iso_c_binding module'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/ISO_005fC_005fBINDING.html#ISO_005fC_005fBINDING'
+    'leftLabel': ''
+    'body': 'c_backspace $1'
+   ##
+  'c_bool':
+    'prefix': 'c_bool'
+    'description': 'named constant, type logical from iso_c_binding module'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/ISO_005fC_005fBINDING.html#ISO_005fC_005fBINDING'
+    'leftLabel': ''
+    'body': 'c_bool $1'
+   ##
+  'c_carriage_return':
+    'prefix': 'c_carriage_return'
+    'description': 'named constant of type character and kind c_char from iso_c_binding module'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/ISO_005fC_005fBINDING.html#ISO_005fC_005fBINDING'
+    'leftLabel': ''
+    'body': 'c_carriage_return $1'
+   ##
+  'c_char':
+    'prefix': 'c_char'
+    'description': 'named constant, type character from iso_c_binding module'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/ISO_005fC_005fBINDING.html#ISO_005fC_005fBINDING'
+    'leftLabel': ''
+    'body': 'c_char $1'
+   ##
+  'c_double':
+    'prefix': 'c_double'
+    'description': 'named constant, type real from iso_c_binding module'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/ISO_005fC_005fBINDING.html#ISO_005fC_005fBINDING'
+    'leftLabel': ''
+    'body': 'c_double $1'
+   ##
+  'c_double_complex':
+    'prefix': 'c_double_complex'
+    'description': 'named constant, type complex from iso_c_binding module'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/ISO_005fC_005fBINDING.html#ISO_005fC_005fBINDING'
+    'leftLabel': ''
+    'body': 'c_double_complex $1'
+   ##
+  'c_f_pointer(cptr,fptr [,shape])':
+    'prefix': 'c_f_pointer'
+    'description': 'subroutine to convert C pointer c_ptr  to fortran pointer, shape must be present for arrays of pointers'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/C_005fF_005fPOINTER.html#C_005fF_005fPOINTER'
+    'leftLabel': ''
+    'body': 'call c_f_pointer($1,fptr)'
+   ##
+  'c_f_procpointer(c_funptr,fptr)':
+    'prefix': 'c_f_procpointer'
+    'description': 'subroutine to convert C address of a procedure to fortran procedure pointer'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/C_005fF_005fPROCPOINTER.html#C_005fF_005fPROCPOINTER'
+    'leftLabel': ''
+    'body': 'call c_f_procpointer($1,$2)'
+   ##
+  'c_float':
+    'prefix': 'c_float'
+    'description': 'named constant, type real from iso_c_binding module'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/ISO_005fC_005fBINDING.html#ISO_005fC_005fBINDING'
+    'leftLabel': ''
+    'body': 'c_float $1'
+   ##
+  'c_float_complex':
+    'prefix': 'c_float_complex'
+    'description': 'named constant, type complex from iso_c_binding module'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/ISO_005fC_005fBINDING.html#ISO_005fC_005fBINDING'
+    'leftLabel': ''
+    'body': 'c_float_complex $1'
+   ##
+  'c_form_feed':
+    'prefix': 'c_form_feed'
+    'description': 'named constant of type character and kind c_char from iso_c_binding module'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/ISO_005fC_005fBINDING.html#ISO_005fC_005fBINDING'
+    'leftLabel': ''
+    'body': 'c_form_feed $1'
+   ##
+  'c_funloc(fptr)':
+    'prefix': 'c_funloc'
+    'description': 'inquiry function, return C address c_ptr of a pricedure for the fortran procedure or pointer'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/C_005fFUNLOC.html#C_005fFUNLOC'
+    'leftLabel': ''
+    'body': 'c_funloc($1)'
+   ##
+  'c_funptr':
+    'prefix': 'c_funptr'
+    'description': 'derived type interoperable with C function pointer type from iso_c_binding module'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/ISO_005fC_005fBINDING.html#ISO_005fC_005fBINDING'
+    'leftLabel': ''
+    'body': 'c_funptr $1'
+   ##
+  'c_horizontal_tab':
+    'prefix': 'c_horizontal_tab'
+    'description': 'named constant of type character and kind c_char from iso_c_binding module'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/ISO_005fC_005fBINDING.html#ISO_005fC_005fBINDING'
+    'leftLabel': ''
+    'body': 'c_horizontal_tab $1'
+   ##
+  'c_int':
+    'prefix': 'c_int'
+    'description': 'named constant, type integer from iso_c_binding module'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/ISO_005fC_005fBINDING.html#ISO_005fC_005fBINDING'
+    'leftLabel': ''
+    'body': 'c_int $1'
+   ##
+  'c_int16_t':
+    'prefix': 'c_int16_t'
+    'description': 'named constant, type integer from iso_c_binding module'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/ISO_005fC_005fBINDING.html#ISO_005fC_005fBINDING'
+    'leftLabel': ''
+    'body': 'c_int16_t $1'
+   ##
+  'c_int32_t':
+    'prefix': 'c_int32_t'
+    'description': 'named constant, type integer from iso_c_binding module'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/ISO_005fC_005fBINDING.html#ISO_005fC_005fBINDING'
+    'leftLabel': ''
+    'body': 'c_int32_t $1'
+   ##
+  'c_int64_t':
+    'prefix': 'c_int64_t'
+    'description': 'named constant, type integer from iso_c_binding module'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/ISO_005fC_005fBINDING.html#ISO_005fC_005fBINDING'
+    'leftLabel': ''
+    'body': 'c_int64_t $1'
+   ##
+  'c_int8_t':
+    'prefix': 'c_int8_t'
+    'description': 'named constant, type integer from iso_c_binding module'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/ISO_005fC_005fBINDING.html#ISO_005fC_005fBINDING'
+    'leftLabel': ''
+    'body': 'c_int8_t $1'
+   ##
+  'c_int_fast16_t':
+    'prefix': 'c_int_fast16_t'
+    'description': 'named constant, type integer from iso_c_binding module'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/ISO_005fC_005fBINDING.html#ISO_005fC_005fBINDING'
+    'leftLabel': ''
+    'body': 'c_int_fast16_t $1'
+   ##
+  'c_int_fast32_t':
+    'prefix': 'c_int_fast32_t'
+    'description': 'named constant, type integer from iso_c_binding module'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/ISO_005fC_005fBINDING.html#ISO_005fC_005fBINDING'
+    'leftLabel': ''
+    'body': 'c_int_fast32_t $1'
+   ##
+  'c_int_fast64_t':
+    'prefix': 'c_int_fast64_t'
+    'description': 'named constant, type integer from iso_c_binding module'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/ISO_005fC_005fBINDING.html#ISO_005fC_005fBINDING'
+    'leftLabel': ''
+    'body': 'c_int_fast64_t $1'
+   ##
+  'c_int_fast8_t':
+    'prefix': 'c_int_fast8_t'
+    'description': 'named constant, type integer from iso_c_binding module'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/ISO_005fC_005fBINDING.html#ISO_005fC_005fBINDING'
+    'leftLabel': ''
+    'body': 'c_int_fast8_t $1'
+   ##
+  'c_int_least16_t':
+    'prefix': 'c_int_least16_t'
+    'description': 'named constant, type integer from iso_c_binding module'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/ISO_005fC_005fBINDING.html#ISO_005fC_005fBINDING'
+    'leftLabel': ''
+    'body': 'c_int_least16_t $1'
+   ##
+  'c_int_least32_t':
+    'prefix': 'c_int_least32_t'
+    'description': 'named constant, type integer from iso_c_binding module'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/ISO_005fC_005fBINDING.html#ISO_005fC_005fBINDING'
+    'leftLabel': ''
+    'body': 'c_int_least32_t $1'
+   ##
+  'c_int_least64_t':
+    'prefix': 'c_int_least64_t'
+    'description': 'named constant, type integer from iso_c_binding module'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/ISO_005fC_005fBINDING.html#ISO_005fC_005fBINDING'
+    'leftLabel': ''
+    'body': 'c_int_least64_t $1'
+   ##
+  'c_int_least8_t':
+    'prefix': 'c_int_least8_t'
+    'description': 'named constant, type integer from iso_c_binding module'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/ISO_005fC_005fBINDING.html#ISO_005fC_005fBINDING'
+    'leftLabel': ''
+    'body': 'c_int_least8_t $1'
+   ##
+  'c_intmax_t':
+    'prefix': 'c_intmax_t'
+    'description': 'named constant, type integer from iso_c_binding module'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/ISO_005fC_005fBINDING.html#ISO_005fC_005fBINDING'
+    'leftLabel': ''
+    'body': 'c_intmax_t $1'
+   ##
+  'c_intptr_t':
+    'prefix': 'c_intptr_t'
+    'description': 'named constant, type integer from iso_c_binding module'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/ISO_005fC_005fBINDING.html#ISO_005fC_005fBINDING'
+    'leftLabel': ''
+    'body': 'c_intptr_t $1'
+   ##
+  'c_loc(x)':
+    'prefix': 'c_loc'
+    'description': 'inquiry function returns scalar of type c_ptr with address of x'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/C_005fLOC.html#C_005fLOC'
+    'leftLabel': ''
+    'body': 'c_loc($1)'
+   ##
+  'c_long':
+    'prefix': 'c_long'
+    'description': 'named constant, type integer from iso_c_binding module'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/ISO_005fC_005fBINDING.html#ISO_005fC_005fBINDING'
+    'leftLabel': ''
+    'body': 'c_long $1'
+   ##
+  'c_long_double':
+    'prefix': 'c_long_double'
+    'description': 'named constant, type real from iso_c_binding module'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/ISO_005fC_005fBINDING.html#ISO_005fC_005fBINDING'
+    'leftLabel': ''
+    'body': 'c_long_double $1'
+   ##
+  'c_long_double_complex':
+    'prefix': 'c_long_double_complex'
+    'description': 'named constant, type complex from iso_c_binding module'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/ISO_005fC_005fBINDING.html#ISO_005fC_005fBINDING'
+    'leftLabel': ''
+    'body': 'c_long_double_complex $1'
+   ##
+  'c_long_long':
+    'prefix': 'c_long_long'
+    'description': 'named constant, type integer from iso_c_binding module'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/ISO_005fC_005fBINDING.html#ISO_005fC_005fBINDING'
+    'leftLabel': ''
+    'body': 'c_long_long $1'
+   ##
+  'c_new_line':
+    'prefix': 'c_new_line'
+    'description': 'named constant of type character and kind c_char from iso_c_binding module'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/ISO_005fC_005fBINDING.html#ISO_005fC_005fBINDING'
+    'leftLabel': ''
+    'body': 'c_new_line $1'
+   ##
+  'c_null_char':
+    'prefix': 'c_null_char'
+    'description': 'named constant of type character and kind c_char from iso_c_binding module'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/ISO_005fC_005fBINDING.html#ISO_005fC_005fBINDING'
+    'leftLabel': ''
+    'body': 'c_null_char  $1'
+   ##
+  'c_null_funptr':
+    'prefix': 'c_null_funptr'
+    'description': 'named constant, type c_funptr=NULL from iso_c_binding module'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/ISO_005fC_005fBINDING.html#ISO_005fC_005fBINDING'
+    'leftLabel': ''
+    'body': 'c_null_funptr $1'
+   ##
+  'c_null_ptr':
+    'prefix': 'c_null_ptr'
+    'description': 'named constant, type c_ptr=NULL from iso_c_binding module'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/ISO_005fC_005fBINDING.html#ISO_005fC_005fBINDING'
+    'leftLabel': ''
+    'body': 'c_null_ptr $1'
+   ##
+  'c_ptr':
+    'prefix': 'c_ptr'
+    'description': 'derived type interoperable with C pointer type from iso_c_binding module'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/ISO_005fC_005fBINDING.html#ISO_005fC_005fBINDING'
+    'leftLabel': ''
+    'body': 'c_ptr $1'
+   ##
+  'c_ptrdiff_t':
+    'prefix': 'c_ptrdiff_t'
+    'description': 'derived type interoperable with C ptrdiff_t type from iso_c_binding module. Used for pointer arithmetic and array indexing'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/ISO_005fC_005fBINDING.html#ISO_005fC_005fBINDING'
+    'leftLabel': ''
+    'body': 'c_ptr $1'
+   ##
+  'c_short':
+    'prefix': 'c_short'
+    'description': 'named constant, type integer from iso_c_binding module'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/ISO_005fC_005fBINDING.html#ISO_005fC_005fBINDING'
+    'leftLabel': ''
+    'body': 'c_short $1'
+   ##
+  'c_signed_char':
+    'prefix': 'c_signed_char'
+    'description': 'named constant, type integer from iso_c_binding module'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/ISO_005fC_005fBINDING.html#ISO_005fC_005fBINDING'
+    'leftLabel': ''
+    'body': 'c_signed_char $1'
+   ##
+  'c_size_t':
+    'prefix': 'c_size_t'
+    'description': 'named constant, type integer from iso_c_binding module'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/ISO_005fC_005fBINDING.html#ISO_005fC_005fBINDING'
+    'leftLabel': ''
+    'body': 'c_size_t $1'
+   ##
+  'c_sizeof(x)':
+    'prefix': 'c_sizeof'
+    'description': 'inquiry function returns size of x like C sizeof(x) operator from iso_c_binding module '
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/C_005fSIZEOF.html#C_005fSIZEOF'
+    'leftLabel': ''
+    'body': 'c_sizeof($1)'
+   ##
+  'c_vertical_tab':
+    'prefix': 'c_vertical_tab'
+    'description': 'named constant of type character and kind c_char from iso_c_binding module'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/ISO_005fC_005fBINDING.html#ISO_005fC_005fBINDING'
+    'leftLabel': ''
+    'body': 'c_vertical_tab $1'
+   ##
+  'call subroutine':
+    'prefix': 'call'
+    'description': ' subroutine statement call'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'call $1'
+   ##
+  'case':
+    'prefix': 'case'
+    'description': ' case statement - part of select case construct'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'case ($1)'
+   ##
+  'case_default':
+    'prefix': 'case_default'
+    'description': ' case default'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'case default'
+   ##
+  'ceiling(i [, kind])':
+    'prefix': 'ceiling'
+    'description': ' truncate to integer toward infinity - least integer greater than or equal to i'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/CEILING.html#CEILING'
+    'leftLabel': ''
+    'body': 'ceiling($1)'
+   ##
+  'char(integer i [,kind=])':
+    'prefix': 'char'
+    'description': ' convert integer value i to character'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/CHAR.html#CHAR'
+    'leftLabel': ''
+    'body': 'char($1 ,kind=)'
+   ##
+  'character()':
+    'prefix': 'character   '
+    'description': ' character intrinsic type declaration'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'character($1)'
+   ##
+  'character(len=*) :: string_name':
+    'prefix': 'character  '
+    'description': 'quick define character string'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'character(len=*):: $1'
+   ##
+  'character(len=:),allocatable :: string_name':
+    'prefix': 'character '
+    'description': ' define deferred allocatable dynamic string'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'character(len=:),allocatable :: $1'
+   ##
+  'character(len=:), pointer :: x':
+    'prefix': 'character'
+    'description': ' define deferred character pointer'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'character(len=:), pointer :: $1'
+   ##
+  'character_kinds':
+    'prefix': 'character_kinds'
+    'description': ' named kind type constant - kind values supported by the processor for variables of type character'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'character_kinds $1'
+   ##
+  'character_storage_size':
+    'prefix': 'character_storage_size'
+    'description': ' the size in bits of a character storage unit'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'character_storage_size'
+   ##
+  'class default':
+    'prefix': 'class    '
+    'description': ' statement in the select type construct'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'class default $1'
+   ##
+  'class is ':
+    'prefix': 'class   '
+    'description': ' statement in the select type construct'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'class is ($1)'
+   ##
+  'class(*), pointer :: p':
+    'prefix': 'class  '
+    'description': ' declares unlimited polymorphic entity pointer'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'class(*), pointer :: $1'
+   ##
+  'class(*) :: x':
+    'prefix': 'class '
+    'description': ' CLASS(*) specifier declares unlimited polymorphic entity and has no type - can be used only in select type statement'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'class(*) :: $1'
+   ##
+  'class(type) :: x':
+    'prefix': 'class'
+    'description': ' CLASS type specifier declares polymorphic entity and has differing dynamic types during program execution'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'class($2) :: $1'
+   ##
+  'close(unit, status="delete")':
+    'prefix': 'close  '
+    'description': ' close and delete file'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '''
+     close(unit=$1, iostat=ios, status="delete")
+     if( ios /= 0 ) stop "Error closing file unit $1"
+    '''
+   ##
+  'close(unit)':
+    'prefix': 'close '
+    'description': ' simple close statement'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'close($1)'
+   ##
+  'close(unit = ,iostat = ,iomsg = ,err = ,status = )':
+    'prefix': 'close'
+    'description': ' full close statement is used to terminate the connection of a specified unit to an external file'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'close(unit = $1,iostat = $2,iomsg = $3,err = $4,status = $5)
+'
+   ##
+  'cmplx(x=real [,y=real] [kind=])':
+    'prefix': 'cmplx'
+    'description': ' converts x or (x, y) to complex type with the kind type parameter'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/CMPLX.html#CMPLX'
+    'leftLabel': ''
+    'body': 'cmplx($1, , kind=)'
+   ##
+  'co_broadcast(val, source_image [, stat, errmsg])':
+    'prefix': 'co_broadcast'
+    'description': ' Copy a value to all images the current set of images'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/CO_005fBROADCAST.html#CO_005fBROADCAST'
+    'leftLabel': ''
+    'body': 'call co_broadcast($1,source_image=$2)'
+   ##
+  'co_max(val [, result_image, stat, errmsg])':
+    'prefix': 'co_max'
+    'description': ' Maximal value on the current set of images'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/CO_005fMAX.html#CO_005fMAX'
+    'leftLabel': ''
+    'body': 'call co_max($1, result_image)'
+   ##
+  'co_min(val [, result_image, stat, errmsg])':
+    'prefix': 'co_min'
+    'description': ' Minimal value on the current set of images'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/CO_005fMIN.html#CO_005fMIN'
+    'leftLabel': ''
+    'body': 'call co_min($1, result_image)'
+   ##
+  'co_reduce(val, operator[, result_image, stat, errmsg])':
+    'prefix': 'co_reduce'
+    'description': ' Reduction of values on the current set of images'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/CO_005fREDUCE.html#CO_005fREDUCE'
+    'leftLabel': ''
+    'body': 'call co_reduce ($1, result_image=1, operator=)'
+   ##
+  'co_sum(val[, result_image, stat, errmsg])':
+    'prefix': 'co_sum'
+    'description': ' Sum of values on the current set of images'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/CO_005fSUM.html#CO_005fSUM'
+    'leftLabel': ''
+    'body': 'call co_sum ($1, result_image=)'
+   ##
+  'type, codimension[2,*] :: coarray_name(:)':
+    'prefix': 'codimension    '
+    'description': ' Assumed-shape coarray'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '$1, codimension[2,*] :: $2(:)   ! Assumed-shape coarray'
+   ##
+  'type coarray_name(n,n)[1:2,*]':
+    'prefix': 'codimension   '
+    'description': ' Explicit-shape coarray'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '$1 $1(,)[1:2,*] ! Explicit-shape coarray'
+   ##
+  'type, codimension[*] :: name':
+    'prefix': 'codimension  '
+    'description': ' Scalar coarray'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '$1, codimension[*] :: $2 ! Scalar coarray'
+   ##
+  'type, codimension[:], allocatable :: coarray_name(:)':
+    'prefix': 'codimension '
+    'description': ' Allocatable coarray'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '$1, codimension[:], allocatable :: $1(:) ! Allocatable coarray'
+   ##
+  'codimension[...]':
+    'prefix': 'codimension'
+    'description': ' Specifies that an entity is a coarray, and specifies its corank and cobounds, if any'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'codimension[$1]'
+   ##
+  'command_argument_count()':
+    'prefix': 'command_argument_count'
+    'description': 'function returns number of command arguments or zero if no arguments'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/COMMAND_005fARGUMENT_005fCOUNT.html#COMMAND_005fARGUMENT_005fCOUNT'
+    'leftLabel': ''
+    'body': 'command_argument_count() $1'
+   ##
+  'compiler_options()':
+    'prefix': 'compiler_options'
+    'description': ' returns a string describing the options used during compilation'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/COMPILER_005fOPTIONS.html#COMPILER_005fOPTIONS'
+    'leftLabel': ''
+    'body': 'compiler_options()$1 '
+   ##
+  'compiler_version()':
+    'prefix': 'compiler_version'
+    'description': ' returns a string describing the name and version of the compiler'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/COMPILER_005fVERSION.html#COMPILER_005fVERSION'
+    'leftLabel': ''
+    'body': 'compiler_version() $1'
+   ##
+  'compiler_version_and_options':
+    'prefix': 'compiler_version_and_options'
+    'description': ' compeiler_version()  and compiler_options() usage'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '''
+      use iso_fortran_env, only: compiler_options, compiler_version
+      character(*), parameter :: compiled_by = compiler_version()
+      character(*), parameter :: compiled_with = compiler_options()
+      $1
+     '''
+   ##
+  'complex(kind(0d0)),allocatable, dimension(:,:) ::':
+    'prefix': 'complex '
+    'description': ' complex double, allocatable 2D arrray type declaration'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'complex(kind(0d0)),allocatable, dimension(:,:) :: $1'
+   ##
+  'complex(kind(0d0)) ::':
+    'prefix': 'complex'
+    'description': ' complex double type declaration'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'complex(kind(0d0)) :: $1'
+   ##
+  'concurrent(i = 1,n)':
+    'prefix': 'concurrent'
+    'description': ' part of do concurrent cycle declaration'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'concurrent(i = 1,$1)'
+   ##
+  'conjg(z)':
+    'prefix': 'conjg'
+    'description': ' reverse the sign of the imaginary part: returns conjugate of a complex number.'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/CONJG.html#CONJG'
+    'leftLabel': ''
+    'body': 'conjg($1)'
+   ##
+  'contiguous :: array_name':
+    'prefix': 'contiguous '
+    'description': ' contiguous statement for array'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'contiguous :: $1'
+   ##
+  'contiguous':
+    'prefix': 'contiguous'
+    'description': ' array attribute, which means that array elements are not separated by other data objects'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'contiguous $1'
+   ##
+  'cos(x)':
+    'prefix': 'cos'
+    'description': 'cosine function'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/COS.html#COS'
+    'leftLabel': ''
+    'body': 'cos($1)'
+   ##
+  'cosh(x)':
+    'prefix': 'cosh'
+    'description': ' hyperbolic cosine function for real or complex x'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/COSH.html#COSH'
+    'leftLabel': ''
+    'body': 'cosh($1)'
+   ##
+  'count(mask, dim)':
+    'prefix': 'count'
+    'description': ' returns the number of true elements in mask along dimension dim'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/COUNT.html#COUNT'
+    'leftLabel': ''
+    'body': 'count($1, )'
+   ##
+  'cpu_time(time)':
+    'prefix': 'cpu_time'
+    'description': ' get processor time'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/CPU_005fTIME.html#CPU_005fTIME'
+    'leftLabel': ''
+    'body': 'call cpu_time($1)'
+   ##
+  'critical ... end critical':
+    'prefix': 'critical'
+    'description': ' construction to limit execution of a piece of code to one image at a time'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '''
+        critical
+        $1
+        end critical
+    '''
+   ##
+  'cshift(array,shift [,dim])':
+    'prefix': 'cshift'
+    'description': ' circular shift on a rank 1 array or rank 1 sections of higher-rank arrays'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/CSHIFT.html#CSHIFT'
+    'leftLabel': ''
+    'body': 'cshift($1,,)'
+   ##
+  'cycle [name]':
+    'prefix': 'cycle'
+    'description': ' transfer control to the end do statement  of the  [named] cycle:  next iteration or end of cycle is initiated'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'cycle $1'
+   ##
+  'data object /value/':
+    'prefix': 'data'
+    'description': ' alternative way to specify an initial value for a variable'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'data $1 / /'
+   ##
+  'date_and_time(date,time,zone,values)':
+    'prefix': 'date_and_time'
+    'description': ' real-time clock reading date and time'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/DATE_005fAND_005fTIME.html#DATE_005fAND_005fTIME'
+    'leftLabel': ''
+    'body': 'call date_and_time(date=$1 ,time= ,zone= ,values=) '
+   ##
+  'dble(x)':
+    'prefix': 'dble'
+    'description': ' convert variable x  to double precision '
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/DBLE.html#DBLE'
+    'leftLabel': ''
+    'body': 'dble($1)'
+   ##
+  'deallocate(a1, stat=err)':
+    'prefix': 'deallocate '
+    'description': ' deallocate allocatable array a1 if allocated and check for errors'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'if(allocated($1)) deallocate($1, stat=error)'
+   ##
+  'deallocate(a)':
+    'prefix': 'deallocate'
+    'description': ' deallocate allocatable array or pointer target which is no longer needed'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'deallocate($1)'
+   ##
+  'decimal = char-expr':
+    'prefix': 'decimal'
+    'description': ' specifier in OPEN/INQUIRE or in data transfer statement (READ,WRITE,PRINT):  "COMMA" or "POINT"'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'decimal=$1'
+   ##
+  'default':
+    'prefix': 'default'
+    'description': ' just default keyword'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'default'
+   ##
+  'deferred':
+    'prefix': 'deferred'
+    'description': ' type-bound procedure statement - binding attribute'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'deferred $1'
+   ##
+  'delim = char-expr':
+    'prefix': 'delim'
+    'description': ' specifier in OPEN/INQUIRE or in data transfer statement (READ,WRITE,PRINT): " APOSTROPHE", "QUOTE", or "NONE" '
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'delim=$1'
+   ##
+  'digits(x)':
+    'prefix': 'digits'
+    'description': 'returns the number of significant digits of the internal model representation of x'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/DIGITS.html#DIGITS'
+    'leftLabel': ''
+    'body': 'digits($1)'
+   ##
+  'dim(x,y)':
+    'prefix': 'dim'
+    'description': ' returns the difference X-Y if the value is positive, otherwise it returns 0'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/DIM.html#DIM'
+    'leftLabel': ''
+    'body': 'dim($1,)'
+   ##
+  'dimension(:,:) :: a':
+    'prefix': 'dimension '
+    'description': ' 2d array a declaration'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'dimension(:,:) :: $1'
+   ##
+  'dimension(:,:), allocatable :: a':
+    'prefix': 'dimension'
+    'description': ' allocatable 2d array a declaration'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'dimension(:,:), allocatable :: $1'
+   ##
+  'direct = scalar-default-char-variable':
+    'prefix': 'direct'
+    'description': ' specifier in the INQUIRE statement: "YES", "NO" or "UNKNOWN"'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'direct=$1'
+   ##
+  'do while ... enddo':
+    'prefix': 'do while'
+    'description': ' do loop with while'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '''
+     do while($1)
+
+     enddo
+    '''
+   ##
+  'do implied':
+    'prefix': 'do    '
+    'description': '(i, i = 1, 100, 1) for internal loop'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '(i, i = $1, $2, 1)'
+   ##
+  'do ... if then exit ... enddo':
+    'prefix': 'do   '
+    'description': ' do loop declaration with "if then exit" statement inside'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '''
+     do
+      if ($1) then
+
+       exit
+      endif
+     enddo
+    '''
+   ##
+  'do ... if then cycle ... enddo':
+    'prefix': 'do  '
+    'description': ' do loop declaration with "if then cycle" statement inside'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '''
+     do
+      if ($1) then
+
+       cycle
+      endif
+     enddo
+    '''
+   ##
+  'do ... end do':
+    'prefix': 'do'
+    'description': ' do cycle declaration'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '''
+     do $1 = $2, $3
+     $4
+     enddo
+    '''
+   ##
+  'do concurrent ... end do':
+    'prefix': 'do '
+    'description': ' do concurrent  ... end do loop'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '''
+        do concurrent(i = 1, 100, step)
+        $1
+        enddo
+    '''
+   ##
+  'dot_product(a,b)':
+    'prefix': 'dot_product'
+    'description': ' inner product of vectors: mathematical dot product of two rank 1 arrays'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/DOT_005fPRODUCT.html#DOT_005fPRODUCT'
+    'leftLabel': ''
+    'body': 'dot_product($1,$2)'
+   ##
+  'dp = kind(1.d0)':
+    'prefix': 'dp '
+    'description': ' define double precision kind'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '''
+     integer, parameter :: dp = kind(1.d0)
+     $1
+    '''
+   ##
+  'dp = selected_real_kind(2*precision(1.0))':
+    'prefix': 'dp'
+    'description': ' define double precision kind'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '  integer, parameter :: dp = selected_real_kind(2*precision(1.0))'
+   ##
+  'dprod(x, y)':
+    'prefix': 'dprod'
+    'description': ' double precision real product of two default real scalars'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/DPROD.html#DPROD'
+    'leftLabel': ''
+    'body': 'dprod($1,$2)'
+   ##
+  'dshiftl(i,j,shift)':
+    'prefix': 'dshiftl'
+    'description': ' combined left shift: returns the most significant half of a double-width left-shift'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/DSHIFTL.html#DSHIFTL'
+    'leftLabel': ''
+    'body': 'dshiftl(i$1,j,shift)'
+   ##
+  'dshiftr(i,j,shift)':
+    'prefix': 'dshiftr'
+    'description': ' combined right shift: returns the least significant half of double-width right shift.'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/DSHIFTR.html#DSHIFTR'
+    'leftLabel': ''
+    'body': 'dshiftr($1,$2,$3)'
+   ##
+  'elemental':
+    'prefix': 'elemental'
+    'description': ' prefix to declare an element-by-element function, subroutine or procedure'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'elemental $1'
+   ##
+  'else ... endif':
+    'prefix': 'else'
+    'description': ' "else" part of if else endif construct, just for convenience'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '''
+        else
+        $1
+        endif
+    '''
+   ##
+  'elseif ... then':
+    'prefix': 'elseif'
+    'description': ' continue if statement'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'elseif ($1) then'
+   ##
+  'encoding = char-expr':
+    'prefix': 'encoding'
+    'description': ' specifier in the OPEN/INQUIRE statement: "UTF-8" or "DEFAULT"'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'encoding=$1'
+   ##
+  'end = label':
+    'prefix': 'end'
+    'description': ' specifier in a data transfer statement (READ,WRITE,PRINT)  shall be the statement label of an end-of-file condition error handling branch'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'end=$1'
+   ##
+  'endfile([unit=]u[,iostat=ios] [,err=error-label])':
+    'prefix': 'endfile'
+    'description': ' write endfile record explicitly'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'endfile(unit=$1)'
+   ##
+  'enum ... end enum':
+    'prefix': 'enum'
+    'description': ' define enumeration compatible with C language by using bind(c)'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '''
+     enum, bind(c)
+       enumerator :: $1 = $2
+     end enum
+    '''
+   ##
+  'enumerator :: name = integer':
+    'prefix': 'enumerator'
+    'description': ' simple enumerator statement, part of enum ... end enum'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'enumerator :: $1 = $2'
+   ##
+  'eor = label':
+    'prefix': 'eor'
+    'description': ' specifier in a data transfer statement (READ,WRITE,PRINT)  shall be the statement label of an end-of-record condition error handling branch'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'eor=$1'
+   ##
+  'eoshift(array,shift [,boundary] [,dim])':
+    'prefix': 'eoshift'
+    'description': ' end-off shift using boundary: end of shift of a rank 1 array or rank 1 section of a higher-rank array.'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/EOSHIFT.html#EOSHIFT'
+    'leftLabel': ''
+    'body': 'eoshift($1,)'
+   ##
+  'epsilon(1.d0)':
+    'prefix': 'epsilon '
+    'description': ' number that is almost negligible compared with double precision number type'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'epsilon(1.d0)'
+   ##
+  'epsilon(x)':
+    'prefix': 'epsilon'
+    'description': ' smallest difference between two reals of that kind: smallest positive number added to x /= x'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/EPSILON.html#EPSILON'
+    'leftLabel': ''
+    'body': 'epsilon($1)'
+   ##
+  '.eqv.':
+    'prefix': 'eqv'
+    'description': ' logical equivalence '
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '.eqv. ($1)'
+   ##
+  'erf(x)':
+    'prefix': 'erf'
+    'description': ' mathematical error function'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/ERF.html#ERF'
+    'leftLabel': ''
+    'body': 'erf($1)'
+   ##
+  'erfc(x)':
+    'prefix': 'erfc'
+    'description': ' mathematical complementary error function'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/ERFC.html#ERFC'
+    'leftLabel': ''
+    'body': 'erfc($1)'
+   ##
+  'erfc_scaled(x)':
+    'prefix': 'erfc_scaled'
+    'description': ' mathematical scaled complementary error function'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/ERFC_005fSCALED.html#ERFC_005fSCALED'
+    'leftLabel': ''
+    'body': 'erfc_scaled($1)'
+   ##
+  'err = label':
+    'prefix': 'err'
+    'description': ' specifier in OPEN/INQUIRE or in data transfer statement (READ,WRITE,PRINT) -  specifier shall be the statement label of an error handling branch'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'err=$1'
+   ##
+  'error_unit':
+    'prefix': 'error_unit '
+    'description': ' the unit number for a preconnected output unit suitable for reporting errors, defined in module iso_fortran_env'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'error_unit'
+   ##
+  'error_unit':
+    'prefix': 'error_unit'
+    'description': ' example usage of_error_unit from iso_fortran_env'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '''
+     use iso_fortran_env, only: error_unit
+     !...
+
+     if(something_bad_happened $1) then
+       write (error_unit,*) "ERROR: $2"
+     endif
+    '''
+   ##
+  'event_query(EVENT, COUNT [, STAT])':
+    'prefix': 'event_query'
+    'description': ' Query whether a coarray event has occurred'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/EVENT_005fQUERY.html#EVENT_005fQUERY'
+    'leftLabel': ''
+    'body': 'event_query($1, $2)'
+   ##
+  'execute_command_line(command,wait,exitstat,cmdstat,cmdmsg)':
+    'prefix': 'execute_command_line'
+    'description': 'execute system command line, system dependent'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/EXECUTE_005fCOMMAND_005fLINE.html#EXECUTE_005fCOMMAND_005fLINE'
+    'leftLabel': ''
+    'body': 'call execute_command_line("$1",wait,exitstat,cmdstat,cmdmsg)'
+   ##
+  'exist = scalar-logical-variable':
+    'prefix': 'exist'
+    'description': ' specifier in the INQUIRE statement: e true if there exists a file with the specified name; otherwise, false is assigned. '
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'exist=$1'
+   ##
+  'exit name':
+    'prefix': 'exit '
+    'description': ' exit statement from the named loop'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'exit $1'
+   ##
+  'exit':
+    'prefix': 'exit'
+    'description': ' exit statement from some loop'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '''
+     exit
+
+    '''
+   ##
+  'exp(x)':
+    'prefix': 'exp'
+    'description': ' mathematical exponential function'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/EXP.html#EXP'
+    'leftLabel': ''
+    'body': 'exp($1)'
+   ##
+  'exponent(x)':
+    'prefix': 'exponent'
+    'description': ' returns the exponent component of the argument'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/EXPONENT.html#EXPONENT'
+    'leftLabel': ''
+    'body': 'exponent($1)'
+   ##
+  'extends_type_of(A, MOLD)':
+    'prefix': 'extends_type_of'
+    'description': ' query dynamic type for extension -  returns true if the dynamic type of A is an extension type of the dynamic type of MOLD'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/EXTENDS_005fTYPE_005fOF.html#EXTENDS_005fTYPE_005fOF'
+    'leftLabel': ''
+    'body': 'extends_type_of($1,$2)'
+   ##
+  'external':
+    'prefix': 'external'
+    'description': ' attribute specification for external functions or subroutines'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'external $1'
+   ##
+  '.false.':
+    'prefix': 'false'
+    'description': ' logical false'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '.false.'
+   ##
+  'file = file-name-expr':
+    'prefix': 'file'
+    'description': ' specifier in the OPEN/INQUIRE statement  is the name of the file to be connected to the specified unit'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'file=$1'
+
+  'file_storage_size':
+    'prefix': 'file_storage_size'
+    'description': ' named constant, the size in bits of a file storage unit (the unit of measurement for the record length of an external file, as used in the recl= clause of an open or inquire statement), defined in  ISO_FORTRAN_ENV'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'file_storage_size $1'
+   ##
+  'final :: final_subroutine':
+    'prefix': 'final'
+    'description': ' subroutine-destructor for derived type'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'final :: $1'
+   ##
+  'findloc(array,value,dim,mask,kind,back)':
+    'prefix': 'findloc'
+    'description': ' returning the position of an element with the specified value or zero if no element was found'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'findloc($1,value,dim,mask,kind,back)'
+   ##
+  'floor(x)':
+    'prefix': 'floor'
+    'description': ' truncate x to integer towards negative infinity'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/FLOOR.html#FLOOR'
+    'leftLabel': ''
+    'body': 'floor($1)'
+   ##
+  'flush(unit)':
+    'prefix': 'flush '
+    'description': ' procedure flushes Fortran unit(s) currently open for output. Without the optional argument, all units are flushed, otherwise just the unit specified'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/FLUSH.html#FLUSH'
+    'leftLabel': ''
+    'body': 'call flush($1)'
+   ##
+  'flush(unit, iostat=,...)':
+    'prefix': 'flush'
+    'description': ' statement (F2003) like write or read, that flushes specified i/o unit(s)'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/FLUSH.html#FLUSH'
+    'leftLabel': ''
+    'body': 'flush($1, iostat=$2, iomsg=$3, err=$4)'
+   ##
+  'fmt = format':
+    'prefix': 'fmt'
+    'description': ' specifier in a data transfer statement (READ,WRITE,PRINT)'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'fmt=$1'
+   ##
+  'forall ... end forall':
+    'prefix': 'forall '
+    'description': ' indicate to the compiler that the code can be optimised on a parallel processor'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '''
+     forall (i=1:,j=1:, $1(i,j) /= 0.0_dp)
+      $1(i,j) =
+     end forall
+    '''
+   ##
+  'forall ... where ... end forall':
+    'prefix': 'forall'
+    'description': ' indicate to the compiler that the code can be optimised on a parallel processor'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '''
+     forall (i=1:,j=1:, $1(i,j) /= 0.0_dp)
+     where ($1(i,j)) > 0.0_dp $1(i,j)
+     $1(i,j) =
+     end forall
+    '''
+   ##
+  'form = char-expr':
+    'prefix': 'form'
+    'description': ' specifier in the OPEN/INQUIRE statement: "FORMATTED" or "UNFORMATTED"'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'form=$1'
+   ##
+  'formatted = scalar-default-char-variable':
+    'prefix': 'formatted'
+    'description': ' specifier in the INQUIRE statement where character variable  is assigned the value "YES", "NO", or "UNKNOWN", depending on whether the file may be opened or not for formatted access, or whether this cannot be determined'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'formatted=$1'
+   ##
+  'fraction(x)':
+    'prefix': 'fraction'
+    'description': ' returns the fractional part of the real numeric model of the argument'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/FRACTION.html#FRACTION'
+    'leftLabel': ''
+    'body': 'fraction($1)'
+   ##
+  'pure function name(args)  ... end function':
+    'prefix': 'function   '
+    'description': ' simple declaration of a function (optionally interoperable with C)'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '''
+     !-----------------------------------------------------------------------
+     !Function $1
+     !-----------------------------------------------------------------------
+     pure function  $1($2) ! bind(c, name='$1')
+     implicit none
+     $3, intent(in) :: $2
+     $3 :: $1
+
+     end function $1
+    '''
+   ##
+  'function name(args)  ... end function':
+    'prefix': 'function'
+    'description': ' simple declaration of a function (optionally interoperable with C)'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '''
+     !-----------------------------------------------------------------------
+     !Function $1
+     !-----------------------------------------------------------------------
+     function  $1($2) ! bind(c, name='$1')
+     implicit none
+     $3, intent(in) :: $2
+     $3 :: $1
+
+     end function $1
+    '''
+   ##
+  'function(this, )':
+    'prefix': 'function '
+    'description': ' module function'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '''
+        !-----------------------------------------------------------------------
+        !Function $1
+        !-----------------------------------------------------------------------
+        module function  $1(this, $2) result($3)
+        implicit none
+        type($4), intent(in) :: this
+        $5, intent(in) :: $2
+        $6 :: $3
+        end function $1
+    '''
+   ##
+  'function(this) result()':
+    'prefix': 'function  '
+    'description': ' module function simple'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'module function $1(this, $2) result($3)'
+   ##
+  'gamma(x)':
+    'prefix': 'gamma'
+    'description': ' mathematical gamma function'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/GAMMA.html#GAMMA'
+    'leftLabel': ''
+    'body': 'gamma($1)'
+   ##
+  'generic, public ::  procedure_name => specific_name1, specific_name2':
+    'prefix': 'generic  '
+    'description': ' declare generic public procedure'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'generic, public :: $1 => $2, $3'
+   ##
+  'generic, public :: operator(.operator_name.) => procedure_name':
+    'prefix': 'generic '
+    'description': ' declare generic procedure for overloaded operator '
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'generic, public :: operator($1) => $2'
+   ##
+  'generic':
+    'prefix': 'generic'
+    'description': ' statement to define generic type-bound procedure'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'generic $1'
+   ##
+  'call get_command(command,length,status)':
+    'prefix': 'get_command'
+    'description': ' subroutine returns command line not broken up into arguments'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/GET_005fCOMMAND.html#GET_005fCOMMAND'
+    'leftLabel': ''
+    'body': 'call get_command ("$1",length,status)'
+   ##
+  'call get_command_argument(number,value,length,status)':
+    'prefix': 'get_command_argument'
+    'description': 'subroutine returns command argument with number'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/GET_005fCOMMAND_005fARGUMENT.html#GET_005fCOMMAND_005fARGUMENT'
+    'leftLabel': ''
+    'body': 'call get_command_argument ($1,value,length,status)'
+   ##
+  'call get_environment_variable(name,value,length,status,trim_name)':
+    'prefix': 'get_environment_variable'
+    'description': 'subroutine returns the env variable value of name'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/GET_005fENVIRONMENT_005fVARIABLE.html#GET_005fENVIRONMENT_005fVARIABLE'
+    'leftLabel': ''
+    'body': 'call get_environment_variable($1,value,length,status,trim_name)'
+   ##
+  'goto label':
+    'prefix': 'goto'
+    'description': ' just go to label'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'goto $1'
+   ##
+  'huge(x)':
+    'prefix': 'huge'
+    'description': ' the largest model number of x'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/HUGE.html#HUGE'
+    'leftLabel': ''
+    'body': 'huge($1)'
+   ##
+  'hypot(x,y)':
+    'prefix': 'hypot'
+    'description': ' euclidean distance function'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/HYPOT.html#HYPOT'
+    'leftLabel': ''
+    'body': 'hypot($1,)'
+   ##
+  'iachar(c [, kind])':
+    'prefix': 'iachar'
+    'description': ' return position of character c in ASCII sequence'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/IACHAR.html#IACHAR'
+    'leftLabel': ''
+    'body': 'iachar($1)'
+   ##
+  'iall(array [,dim,mask])':
+    'prefix': 'iall'
+    'description': ' reduce array with bitwise AND operation'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/IALL.html#IALL'
+    'leftLabel': ''
+    'body': 'iall($1)'
+   ##
+  'iand(i,j)':
+    'prefix': 'iand'
+    'description': ' bit by bit logical AND'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/IAND.html#IAND'
+    'leftLabel': ''
+    'body': 'iand($1,$2)'
+   ##
+  'iany(array [,dim,mask])':
+    'prefix': 'iany'
+    'description': ' reduce array with bitwise OR operation'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/IANY.html#IANY'
+    'leftLabel': ''
+    'body': 'iany($1)'
+   ##
+  'ibclr(integer,pos)':
+    'prefix': 'ibclr'
+    'description': ' integer argument with bit POS replaced by zero'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/IBCLR.html#IBCLR'
+    'leftLabel': ''
+    'body': 'ibclr($1, $2)'
+   ##
+  'ibits(integer,pos,len)':
+    'prefix': 'ibits'
+    'description': ' extract len bits starting at pos'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/IBITS.html#IBITS'
+    'leftLabel': ''
+    'body': 'ibits($1 ,$2 ,$3)'
+   ##
+  'ibset(integer,pos)':
+    'prefix': 'ibset'
+    'description': ' argument with pos bit set to one'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/IBSET.html#IBSET'
+    'leftLabel': ''
+    'body': 'ibset($1, $2) '
+   ##
+  'ichar(character)':
+    'prefix': 'ichar'
+    'description': ' return code value for character'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/ICHAR.html#ICHAR'
+    'leftLabel': ''
+    'body': 'ichar($1)'
+   ##
+  'id = id-variable':
+    'prefix': 'id'
+    'description': ' specifier in the INQUIRE or in a data transfer statement (READ,WRITE,PRINT). Successful execution of an asynchronous data transfer statement containing an ID= specifier causes the variable in the ID= specifier to become defined with a processor determined value. If this value is zero, the data transfer operation has been completed.'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'id=$1'
+   ##
+  'ieee_all':
+    'prefix': 'ieee_all'
+    'description': ' array named constant in ieee_exceptions  = [ ieee_usual, ieee_underflow, ieee_inexact]'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'ieee_all'
+   ##
+  'use, intrinsic :: ieee_arithmetic':
+    'prefix': 'ieee_arithmetic'
+    'description': ' intrinsic module provides IEEE arithmetic facilities'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'use, intrinsic :: ieee_arithmetic'
+   ##
+  'ieee_class(x)':
+    'prefix': 'ieee_class'
+    'description': ' elemental function in ieee_arithmetic - classify number'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'ieee_class($1)'
+   ##
+  'ieee_class_type':
+    'prefix': 'ieee_class_type'
+    'description': ' derived type in ieee_arithmetic identifying a class of floating-point values'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'ieee_class_type $1'
+   ##
+  'ieee_copy_sign(x, y)':
+    'prefix': 'ieee_copy_sign'
+    'description': ' elemental function in ieee_arithmetic - copy sign'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'ieee_copy_sign($1, $2)'
+   ##
+  'ieee_datatype':
+    'prefix': 'ieee_datatype'
+    'description': ' named constant defined in IEEE_FEATURES module'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'ieee_datatype'
+   ##
+  'ieee_denormal':
+    'prefix': 'ieee_denormal'
+    'description': ' named constant defined in IEEE_FEATURES module'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'ieee_denormal'
+   ##
+  'ieee_divide':
+    'prefix': 'ieee_divide'
+    'description': ' named constant defined in IEEE_FEATURES module'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'ieee_divide'
+   ##
+  'ieee_divide_by_zero':
+    'prefix': 'ieee_divide_by_zero'
+    'description': ' named constant in ieee_exceptions'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'ieee_divide_by_zero $1'
+   ##
+  'ieee_down':
+    'prefix': 'ieee_down'
+    'description': ' named constant defined in ieee_arithmetic'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'ieee_down $1'
+   ##
+  'use, intrinsic :: ieee_exceptions':
+    'prefix': 'ieee_exceptions'
+    'description': ' intrinsic module provides IEEE exceptions facilities'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'use, intrinsic :: ieee_exceptions'
+   ##
+  'use, intrinsic :: ieee_features':
+    'prefix': 'ieee_features'
+    'description': ' intrinsic module provides IEEE facilities'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'use, intrinsic :: ieee_features'
+   ##
+  'ieee_features_type':
+    'prefix': 'ieee_features_type'
+    'description': 'derived data type defined in the IEEE_FEATURES module that identifies the IEEE features to use'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'type(ieee_features_type) :: $1'
+   ##
+  'ieee_flag_type':
+    'prefix': 'ieee_flag_type'
+    'description': 'derived type in ieee_exceptions, identifying a particular exception flag'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'ieee_flag_type $1'
+   ##
+  'ieee_get_flag(flag, flag_value)':
+    'prefix': 'ieee_get_flag'
+    'description': ' subroutine in ieee_exceptions - get an exception flag'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'ieee_get_flag($1,$2)  '
+   ##
+  'ieee_get_halting_mode(flag, halting)':
+    'prefix': 'ieee_get_halting_mode'
+    'description': ' subroutine in ieee_exceptions - get a halting mode'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'ieee_get_halting_mode($1,$2)'
+   ##
+  'ieee_get_rounding_mode(round_value)':
+    'prefix': 'ieee_get_rounding_mode'
+    'description': ' subroutine in ieee_arithmetic - get rounding mode'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'ieee_get_rounding_mode($1)'
+   ##
+  'ieee_get_status(status_value)':
+    'prefix': 'ieee_get_status'
+    'description': ' subroutine in ieee_exceptions - get floating-point state'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'ieee_get_status($1)'
+   ##
+  'ieee_get_underflow_mode(gradual)':
+    'prefix': 'ieee_get_underflow_mode'
+    'description': 'subroutine in ieee_arithmetic returns current underflow mode: (true)=gradual or (.false.)=abrupt'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'ieee_get_underflow_mode($1)'
+   ##
+  'ieee_halting':
+    'prefix': 'ieee_halting'
+    'description': ' named constant defined in IEEE_FEATURES module'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'ieee_halting'
+   ##
+  'ieee_inexact':
+    'prefix': 'ieee_inexact'
+    'description': ' named constant in ieee_exceptions'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'ieee_inexact $1'
+   ##
+  'ieee_inexact_flag':
+    'prefix': 'ieee_inexact_flag'
+    'description': ' named constant defined in IEEE_FEATURES module'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'ieee_inexact_flag'
+   ##
+  'ieee_inf':
+    'prefix': 'ieee_inf'
+    'description': ' named constant defined in IEEE_FEATURES module'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'ieee_inf'
+
+  'ieee_invalid_flag':
+    'prefix': 'ieee_invalid_flag'
+    'description': ' named constant defined in IEEE_FEATURES module'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'ieee_invalid_flag'
+   ##
+  'ieee_invalid':
+    'prefix': 'ieee_invalid'
+    'description': ' named constant in ieee_exceptions'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'ieee_invalid $1'
+   ##
+  'ieee_is_finite(x)':
+    'prefix': 'ieee_is_finite'
+    'description': ' elemental function in ieee_arithmetic - test value for being finite'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'ieee_is_finite($1)'
+   ##
+  'ieee_is_nan(x)':
+    'prefix': 'ieee_is_nan'
+    'description': ' elemental function in ieee_arithmetic - whether a value is an ieee_nan'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'ieee_is_nan($1)'
+   ##
+  'ieee_is_negative(x)':
+    'prefix': 'ieee_is_negative'
+    'description': ' elemental function in ieee_arithmetic - whether a value is negative'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'ieee_is_negative($1)'
+   ##
+  'ieee_is_normal(x)':
+    'prefix': 'ieee_is_normal'
+    'description': ' elemental function in ieee_arithmetic - whether a value is a normal number'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'ieee_is_normal($1)'
+   ##
+  'ieee_logb(x)':
+    'prefix': 'ieee_logb'
+    'description': ' elemental function in ieee_arithmetic - exponent'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'ieee_logb($1)'
+   ##
+  'ieee_nan':
+    'prefix': 'ieee_nan'
+    'description': ' named constant defined in IEEE_FEATURES module'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'ieee_nan'
+   ##
+  'ieee_nearest':
+    'prefix': 'ieee_nearest'
+    'description': ' named constant defined in ieee_arithmetic'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'ieee_nearest $1'
+   ##
+  'ieee_negative_denormal':
+    'prefix': 'ieee_negative_denormal'
+    'description': ' named constant defined in ieee_arithmetic'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'ieee_negative_denormal $1'
+   ##
+  'ieee_negative_inf':
+    'prefix': 'ieee_negative_inf'
+    'description': ' named constant defined in ieee_arithmetic'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'ieee_negative_inf $1'
+   ##
+  'ieee_negative_normal':
+    'prefix': 'ieee_negative_normal'
+    'description': ' named constant defined in ieee_arithmetic'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'ieee_negative_normal $1'
+   ##
+  'ieee_negative_zero':
+    'prefix': 'ieee_negative_zero'
+    'description': ' named constant defined in ieee_arithmetic'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'ieee_negative_zero $1'
+   ##
+  'ieee_next_after(x, y)':
+    'prefix': 'ieee_next_after'
+    'description': ' elemental function in ieee_arithmetic - adjacent machine number'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'ieee_next_after($1,)'
+   ##
+  'ieee_other':
+    'prefix': 'ieee_other'
+    'description': ' named constant defined in ieee_arithmetic'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'ieee_other $1'
+   ##
+  'ieee_other_value':
+    'prefix': 'ieee_other_value'
+    'description': ' named constant defined in ieee_arithmetic'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'ieee_other_value $1'
+   ##
+  'ieee_overflow':
+    'prefix': 'ieee_overflow'
+    'description': ' named constant in ieee_exceptions'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'ieee_overflow $1'
+   ##
+  'ieee_positive_denormal':
+    'prefix': 'ieee_positive_denormal'
+    'description': ' named constant defined in ieee_arithmetic'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'ieee_positive_denormal $1'
+   ##
+  'ieee_positive_inf':
+    'prefix': 'ieee_positive_inf'
+    'description': ' named constant defined in ieee_arithmetic'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'ieee_positive_inf $1'
+   ##
+  'ieee_positive_normal':
+    'prefix': 'ieee_positive_normal'
+    'description': ' named constant defined in ieee_arithmetic'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'ieee_positive_normal $1'
+   ##
+  'ieee_positive_zero':
+    'prefix': 'ieee_positive_zero'
+    'description': ' named constant defined in ieee_arithmetic'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'ieee_positive_zero $1'
+   ##
+  'ieee_quiet_nan':
+    'prefix': 'ieee_quiet_nan'
+    'description': ' named constant defined in ieee_arithmetic'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'ieee_quiet_nan $1'
+   ##
+  'ieee_rem(x, y)':
+    'prefix': 'ieee_rem'
+    'description': ' elemental function in ieee_arithmetic - exact remainder'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'ieee_rem($1,)'
+   ##
+  'ieee_rint(x)':
+    'prefix': 'ieee_rint'
+    'description': ' elemental function in ieee_arithmetic - round to integer'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'ieee_rint($1)'
+   ##
+  'ieee_round_type':
+    'prefix': 'ieee_round_type'
+    'description': ' derived type in ieee_arithmetic identifying a particular rounding mode'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'ieee_round_type $1'
+   ##
+  'ieee_rounding':
+    'prefix': 'ieee_rounding'
+    'description': ' named constant defined in IEEE_FEATURES module'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'ieee_rounding'
+   ##
+  'ieee_scalb(x, i)':
+    'prefix': 'ieee_scalb'
+    'description': ' elemental function in ieee_arithmetic - x * 2i'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'ieee_scalb($1,$2) '
+   ##
+  'ieee_selected_real_kind([p, r, radix])':
+    'prefix': 'ieee_selected_real_kind'
+    'description': ' transformational function in ieee_arithmetic - ieee kind type parameter value'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'ieee_selected_real_kind($1)'
+   ##
+  'ieee_set_flag(flag, flag value)':
+    'prefix': 'ieee_set_flag'
+    'description': ' subroutine in ieee_exceptions -  set an exception flag'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'ieee_set_flag($1,$2)'
+   ##
+  'ieee_set_halting_mode(flag, halting)':
+    'prefix': 'ieee_set_halting_mode'
+    'description': ' subroutine in ieee_exceptions -  set a halting mode'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'ieee_set_halting_mode($1,$2)'
+   ##
+  'ieee_set_rounding_mode(round_value)':
+    'prefix': 'ieee_set_rounding_mode'
+    'description': ' subroutine in ieee_arithmetic - set rounding mode'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'ieee_set_rounding_mode($1)'
+   ##
+  'ieee_set_status(status_value)':
+    'prefix': 'ieee_set_status'
+    'description': ' subroutine in ieee_exceptions - restore floating-point state'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'ieee_set_status($1)'
+   ##
+  'ieee_set_underflow_mode(gradual)':
+    'prefix': 'ieee_set_underflow_mode'
+    'description': ' subroutine in ieee_arithmetic - set underflow mode'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'ieee_set_underflow_mode($1)'
+   ##
+  'ieee_signaling_nan':
+    'prefix': 'ieee_signaling_nan'
+    'description': ' named constant defined in ieee_arithmetic'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'ieee_signaling_nan $1'
+   ##
+  'ieee_sqrt':
+    'prefix': 'ieee_sqrt'
+    'description': ' named constant defined in IEEE_FEATURES module'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'ieee_sqrt'
+   ##
+  'ieee_status_type':
+    'prefix': 'ieee_status_type'
+    'description': ' derived type in ieee_exceptions representing the floating-point status'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'ieee_status_type $1'
+   ##
+  'ieee_support_datatype([x])':
+    'prefix': 'ieee_support_datatype'
+    'description': ' intrinsic function in ieee_arithmetic - query ieee arithmetic support'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'ieee_support_datatype($1)'
+   ##
+  'ieee_support_denormal([x])':
+    'prefix': 'ieee_support_denormal'
+    'description': ' intrinsic function in ieee_arithmetic - query denormalized number support'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'ieee_support_denormal($1)'
+   ##
+  'ieee_support_divide([x])':
+    'prefix': 'ieee_support_divide'
+    'description': ' intrinsic function in ieee_arithmetic - query ieee division support'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'ieee_support_divide($1)'
+   ##
+  'ieee_support_flag(flag [, x])':
+    'prefix': 'ieee_support_flag'
+    'description': ' intrinsic function in ieee_exceptions - exception support'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'ieee_support_flag($1,)'
+   ##
+  'ieee_support_halting(flag)':
+    'prefix': 'ieee_support_halting'
+    'description': ' intrinsic function in ieee_exceptions - query halting mode support'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'ieee_support_halting($1)'
+   ##
+  'ieee_support_inf([x])':
+    'prefix': 'ieee_support_inf'
+    'description': ' intrinsic function in ieee_arithmetic - query ieee_infinity support'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'ieee_support_inf($1)'
+   ##
+  'ieee_support_io([x])':
+    'prefix': 'ieee_support_io'
+    'description': ' intrinsic function in ieee_arithmetic - query ieee_formatting support'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'ieee_support_io($1)'
+   ##
+  'ieee_support_nan([x])':
+    'prefix': 'ieee_support_nan'
+    'description': ' intrinsic function in ieee_arithmetic - query ieee_nan support'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'ieee_support_nan($1)'
+   ##
+  'ieee_support_rounding(round_value[, x])':
+    'prefix': 'ieee_support_rounding'
+    'description': ' intrinsic function in ieee_arithmetic - query ieee_rounding support'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'ieee_support_rounding($1,)'
+   ##
+  'ieee_support_sqrt([x])':
+    'prefix': 'ieee_support_sqrt'
+    'description': ' intrinsic function in ieee_arithmetic - query ieee_square root support'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'ieee_support_sqrt($1)'
+   ##
+  'ieee_support_standard([x])':
+    'prefix': 'ieee_support_standard'
+    'description': ' intrinsic function in ieee_arithmetic - query ieee_standard support'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'ieee_support_standard($1)'
+   ##
+  'ieee_support_underflow_control([x])':
+    'prefix': 'ieee_support_underflow_control'
+    'description': ' intrinsic function in ieee_arithmetic - query underflow control support'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'ieee_support_underflow_control($1)'
+   ##
+  'ieee_to_zero':
+    'prefix': 'ieee_to_zero'
+    'description': ' named constant defined in ieee_arithmetic'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'ieee_to_zero $1'
+   ##
+  'ieee_underflow':
+    'prefix': 'ieee_underflow'
+    'description': ' named constant in ieee_exceptions'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'ieee_underflow $1'
+   ##
+  'ieee_underflow_flag':
+    'prefix': 'ieee_underflow_flag'
+    'description': ' named constant defined in IEEE_FEATURES module'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'ieee_underflow_flag'
+   ##
+  'ieee_unordered(x, y)':
+    'prefix': 'ieee_unordered'
+    'description': ' elemental function in ieee_arithmetic - whether two values are unordered'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'ieee_unordered($1,)'
+   ##
+  'ieee_up':
+    'prefix': 'ieee_up'
+    'description': ' named constant defined in ieee_arithmetic'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'ieee_up $1'
+   ##
+  'ieee_usual':
+    'prefix': 'ieee_usual'
+    'description': ' array named constant in ieee_exceptions  = [ ieee_overflow, ieee_divide_by_zero, ieee_invalid]'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'ieee_usual $1'
+   ##
+  'ieee_value(x, class)':
+    'prefix': 'ieee_value'
+    'description': ' elemental function in ieee_arithmetic - return number in a class'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'ieee_value($1,)'
+   ##
+  'ieor(integer,integer)':
+    'prefix': 'ieor'
+    'description': ' bit by bit logical exclusive or'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/IEOR.html#IEOR'
+    'leftLabel': ''
+    'body': 'ieor($1,)'
+   ##
+  'if(.not.allocated(x)) then allocate(x) endif':
+    'prefix': 'if    '
+    'description': ' allocate array and init to x'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '''
+     if(.not.allocated($1)) then
+       allocate($1(1:), stat=status)
+       if (status /= 0) then
+         write(*,*) "$1: Error. Allocation request failed. STOP"
+         stop
+       endif
+       $1=$2
+     endif
+    '''
+   ##
+  'if(condition) then ... endif':
+    'prefix': 'if'
+    'description': ' if block construct'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '''
+     if ($1)  then
+       $2
+     endif
+    '''
+   ##
+  'if(condition) then ... else ... endif':
+    'prefix': 'if  '
+    'description': ' if else block construct'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '''
+     if ($1)  then
+       $2
+     else
+       $3
+     endif
+    '''
+   ##
+  'if(allocated( )) deallocate( )':
+    'prefix': 'if '
+    'description': ' reallocate array using new size'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '''
+     if (allocated($1)) deallocate($1)
+     allocate( $1(:))
+    '''
+   ##
+  'if(condition)':
+    'prefix': 'if   '
+    'description': 'if in single line'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'if ($1) $2'
+   ##
+  'complex_number % im':
+    'prefix': 'im'
+    'description': ' access imaginary part of the complex'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '$1%im'
+   ##
+  'image_index(COARRAY, SUB)':
+    'prefix': 'image_index'
+    'description': ' returns the image index belonging to a cosubscript or zero '
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/IMAGE_005fINDEX.html#IMAGE_005fINDEX'
+    'leftLabel': ''
+    'body': 'image_index($1,$2)'
+   ##
+  'implicit none':
+    'prefix': 'implicit'
+    'description': ' cancels default type mapping for all  letters'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'implicit none'
+   ##
+  'import :: X':
+    'prefix': 'import'
+    'description': ' import named entities from the host scoping unit in the interface body'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'import :: $1'
+   ##
+  'impure':
+    'prefix': 'impure'
+    'description': ' prefix specifies that this procedure is not pure'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'impure $1'
+   ##
+  'include char-literal-constant':
+    'prefix': 'include'
+    'description': ' to include source text from somewhere else into the source stream presented to the compiler'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'include $1'
+   ##
+  'index(string,substring [,back=])':
+    'prefix': 'index'
+    'description': ' ! search pos of substring in string'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/INDEX-intrinsic.html#INDEX-intrinsic'
+    'leftLabel': ''
+    'body': 'index($1, $2, back=.false.)'
+   ##
+  'input_unit':
+    'prefix': 'input_unit'
+    'description': ' integer scalar constant preconnected for sequential formatted input'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'input_unit$1'
+   ##
+  'inquire file':
+    'prefix': 'inquire  '
+    'description': ' inquire file and check if opened and detect preconnected unit'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '''
+     logical :: open_check, exist_check
+     integer :: iounit
+     inquire(file=$1, opened=open_check, exists=exist_check, number=iounit)
+    '''
+   ##
+  'inquire file':
+    'prefix': 'inquire '
+    'description': ' inquire file by unit and action mode ("read", "write", "readwrite", etc)'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '''
+     logical :: open_check
+     character(len=:),allocatable :: ioaction
+     inquire(unit=$1, opened=open_check, name=$1, action=ioaction)
+    '''
+   ##
+  'inquire and open file':
+    'prefix': 'inquire'
+    'description': ' and open file'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '''
+     !inquire and open input file
+     logical :: exist_check
+     character :: inputfile
+     inquire(file=inputfile, exist=exist_check)
+     if (exist_check) then
+       open(newunit,file=inputfile,action="read")
+     else
+       write(*,*)"Error: input file '"//inputfile//"' not found. STOP"
+       stop
+     endif
+    '''
+   ##
+  'int(integer_real_complex)':
+    'prefix': 'int'
+    'description': ' convert to integer'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/INT.html#INT'
+    'leftLabel': ''
+    'body': 'int($1)'
+   ##
+  'int16':
+    'prefix': 'int16'
+    'description': ' integer scalar constant whose storage size expressed in bits is 16'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'int16'
+   ##
+  'int32':
+    'prefix': 'int32'
+    'description': ' integer scalar constant whose storage size expressed in bits is 32'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'int32$1'
+   ##
+  'int64':
+    'prefix': 'int64'
+    'description': ' integer scalar constant whose storage size expressed in bits is 64'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'int64'
+   ##
+  'int8':
+    'prefix': 'int8'
+    'description': ' integer scalar constant whose storage size expressed in bits is 8'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'int8'
+   ##
+  'integer(kind)':
+    'prefix': 'integer  '
+    'description': ' integer variable declaration with kind'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'integer($1) :: $2'
+   ##
+  'integer':
+    'prefix': 'integer '
+    'description': ' integer variable declaration'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'integer :: $1'
+   ##
+  'integer(kind=)':
+    'prefix': 'integer'
+    'description': ' integer variable declaration with kind'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'integer (kind=$1) :: $2'
+   ##
+  'integer_kinds(:)':
+    'prefix': 'integer_kinds'
+    'description': ' integer array constant with kind values supported by the processor for type integer'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'integer_kinds($1)'
+   ##
+  'intent(in)':
+    'prefix': 'intent  '
+    'description': ' to pass information in'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'intent(in) :: $1'
+   ##
+  'intent(inout)':
+    'prefix': 'intent '
+    'description': ' to pass information in/out'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'intent(inout) :: $1'
+   ##
+  'intent(out)':
+    'prefix': 'intent'
+    'description': ' to pass information out'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'intent(out) :: $1'
+   ##
+  'interface ... end interface':
+    'prefix': 'interface  '
+    'description': ' declare named  interface block'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '''
+     interface $1
+       $2
+     end interface $1
+    '''
+   ##
+  'interface operator(operator_name) ... end interface':
+    'prefix': 'interface '
+    'description': ' interface block declaration for operator'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '''
+        interface operator($1)
+        $2
+        end interface operator($1)
+    '''
+   ##
+  'abstract interface ... end interface':
+    'prefix': 'interface'
+    'description': ' abstract interface declaration used for abstract type definition'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '''
+        abstract interface
+        $1
+        end interface
+    '''
+   ##
+  'intrinsic':
+    'prefix': 'intrinsic'
+    'description': ' declaration of intrinsic attribute for list'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'intrinsic $1'
+   ##
+  'iomsg = iomsg-variable':
+    'prefix': 'iomsg'
+    'description': ' specifier in OPEN/INQUIRE or in data transfer statement (READ,WRITE,PRINT)'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'iomsg=$1'
+   ##
+  'ior(integer,integer)':
+    'prefix': 'ior'
+    'description': ' ! bit by bit logical OR'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/IOR.html#IOR'
+    'leftLabel': ''
+    'body': 'ior($1,$2) '
+   ##
+  'iostat = int-variable':
+    'prefix': 'iostat'
+    'description': ' specifier in OPEN/INQUIRE or in data transfer statement (READ,WRITE,PRINT) becomes defined with: zero, IOSTAT_INQUIRE_INTERNAL_UNIT, IOSTAT_END,  IOSTAT_EOR '
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'iostat=$1'
+   ##
+  'iostat_end':
+    'prefix': 'iostat_end'
+    'description': ' The value returned by iostat= to indicate an end-of-file condition'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'iostat_end'
+   ##
+  'iostat_eor':
+    'prefix': 'iostat_eor'
+    'description': ' The value returned by iostat= to indicate an end-of-record condition'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'iostat_eor'
+   ##
+  'iostat_inquire_internal_unit':
+    'prefix': 'iostat_inquire_internal_unit'
+    'description': ' The IOSTAT integer value in user-defined derived type input/output when the INQUIRE statement is used with a unit number that identifies an internal file'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'iostat_inquire_internal_unit'
+   ##
+  'iparity(array, dim [, mask ] )':
+    'prefix': 'iparity'
+    'description': ' reduces array or dim of array to a scalar value using the ieor function.'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/IPARITY.html#IPARITY'
+    'leftLabel': ''
+    'body': 'iparity($1,$2)'
+   ##
+  'is':
+    'prefix': 'is'
+    'description': 'jsut is keyword'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'is'
+   ##
+  'is_contiguous(array_name)':
+    'prefix': 'is_contiguous'
+    'description': ' inquiry function to test the contiguity of the array'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'is_contiguous($1)'
+   ##
+  'is_iostat_end(i)':
+    'prefix': 'is_iostat_end'
+    'description': ' returns the value true if i is an I/O status value that corresponds to an end-of-file condition, and false otherwise'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/IS_005fIOSTAT_005fEND.html#IS_005fIOSTAT_005fEND'
+    'leftLabel': ''
+    'body': 'is_iostat_end($1)'
+   ##
+  'is_iostat_eor(i)':
+    'prefix': 'is_iostat_eor'
+    'description': ' returns the value true if i is an I/O status value that corresponds to an end-of-record condition, and false otherwis'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/IS_005fIOSTAT_005fEOR.html#IS_005fIOSTAT_005fEOR'
+    'leftLabel': ''
+    'body': 'is_iostat_eor($1)'
+   ##
+  'ishft(integer,shift)':
+    'prefix': 'ishft'
+    'description': ' shift bits in argument by shift'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/ISHFT.html#ISHFT'
+    'leftLabel': ''
+    'body': 'ishft($1,$2)'
+   ##
+  'ishftc(integer, shift)':
+    'prefix': 'ishftc'
+    'description': ' shift circular bits in argument'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/ISHFTC.html#ISHFTC'
+    'leftLabel': ''
+    'body': 'ishftc($1,$2)'
+   ##
+  'use, intrinsic :: iso_c_binding':
+    'prefix': 'iso_c_binding'
+    'description': ' intrinsic module provides portability facilities with C language'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'use, intrinsic :: iso_c_binding'
+   ##
+  'use, intrinsic :: iso_fortran_env':
+    'prefix': 'iso_fortran_env'
+    'description': ' intrinsic module provides many scalar default-integer named constants'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'use, intrinsic :: iso_fortran_env'
+   ##
+  'kind = kind(1.0d0)':
+    'prefix': 'kind '
+    'description': ' kind for real numbers (double precision)'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/KIND.html#KIND'
+    'leftLabel': ''
+    'body': 'kind=kind(1.0d0)'
+   ##
+  'kind(x)':
+    'prefix': 'kind'
+    'description': ' returns the kind value of the entity X'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/KIND.html#KIND'
+    'leftLabel': ''
+    'body': 'kind($1)'
+   ##
+  'lbound(array_name [, dim] )':
+    'prefix': 'lbound'
+    'description': 'lower bound- smallest subscript of dim in array'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/LBOUND.html#LBOUND'
+    'leftLabel': ''
+    'body': 'lbound($1)'
+   ##
+  'lcobound(coarray [, dim [, kind]])':
+    'prefix': 'lcobound'
+    'description': '! returns the lower cobounds of a coarray, or a single lower cobound along the DIM codimension'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/LCOBOUND.html#LCOBOUND'
+    'leftLabel': ''
+    'body': 'lcobound($1)'
+   ##
+  'leadz(i)':
+    'prefix': 'leadz'
+    'description': ' number of leading zero bits in i'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/LEADZ.html#LEADZ'
+    'leftLabel': ''
+    'body': 'leadz($1) '
+   ##
+  'len(character)':
+    'prefix': 'len'
+    'description': ' number of characters that can be in argument'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/LEN.html#LEN'
+    'leftLabel': ''
+    'body': 'len($1)'
+   ##
+  'len_trim(character)':
+    'prefix': 'len_trim'
+    'description': ' length without trailing blanks'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/LEN_005fTRIM.html#LEN_005fTRIM'
+    'leftLabel': ''
+    'body': 'len_trim($1)'
+   ##
+  'lge(string_a,string_b)':
+    'prefix': 'lge'
+    'description': ' string_a >= string_b'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/LGE.html#LGE'
+    'leftLabel': ''
+    'body': 'lge($1,$2) '
+   ##
+  'lgt(string_a,string_b)':
+    'prefix': 'lgt'
+    'description': ' string_a > string_b'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/LGT.html#LGT'
+    'leftLabel': ''
+    'body': 'lgt($1,$2)'
+   ##
+  'lle(string_a,string_b)':
+    'prefix': 'lle'
+    'description': ' string_a <= string_b'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/LLE.html#LLE'
+    'leftLabel': ''
+    'body': 'lle($1,$2)'
+   ##
+  'llt(string_a,string_b)':
+    'prefix': 'llt'
+    'description': ' string_a < string_b'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/LLT.html#LLT'
+    'leftLabel': ''
+    'body': 'llt($1,$2)'
+   ##
+  'lock(lock-variable [,lock-stat-list ])':
+    'prefix': 'lock'
+    'description': ' lock statement defined in the intrinsic module iso_fortran_env'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'lock($1)'
+   ##
+  'type(lock_type) :: lock_name':
+    'prefix': 'lock_type'
+    'description': ' derived coarray variable of type(lock_type) that is defined in the intrinsic module iso_fortran_env'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '''
+        use, intrinsic :: iso_fortran_env, only: lock_type
+        type(lock_type) :: $1_lock
+    '''
+   ##
+  'log(x)':
+    'prefix': 'log'
+    'description': ' natural logarithm, x = real, complex'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/LOG.html#LOG'
+    'leftLabel': ''
+    'body': 'log($1)'
+   ##
+  'log10(x)':
+    'prefix': 'log10'
+    'description': ' logarithm base 10, x = real'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/LOG10.html#LOG10'
+    'leftLabel': ''
+    'body': 'log10($1)'
+   ##
+  'log_gamma(x)':
+    'prefix': 'log_gamma'
+    'description': ' Logarithm of absolute value of gamma function'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/LOG_005fGAMMA.html#LOG_005fGAMMA'
+    'leftLabel': ''
+    'body': 'log_gamma($1)'
+   ##
+  'logical(L [,kind=])':
+    'prefix': 'logical  '
+    'description': ' ! convert between kinds of logicals'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/LOGICAL.html#LOGICAL'
+    'leftLabel': ''
+    'body': 'logical($1,kind=$2) '
+   ##
+  'logical(kind=kind(.true.)) :: variable':
+    'prefix': 'logical '
+    'description': ' declare logical variable and specify kind value'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'logical(kind=kind(.true.)) :: $1'
+   ##
+  'logical :: variable':
+    'prefix': 'logical'
+    'description': ' declare logical (bool) variable'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'logical :: $1'
+   ##
+  'logical_kinds':
+    'prefix': 'logical_kinds'
+    'description': ' named kind type constant'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'logical_kinds'
+   ##
+  'maskl(i [,kind])':
+    'prefix': 'maskl'
+    'description': ' Integer with leftmost i bits 1 and the rest 0'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/MASKL.html#MASKL'
+    'leftLabel': ''
+    'body': 'maskl($1)'
+   ##
+  'maskr(i [,kind])':
+    'prefix': 'maskr'
+    'description': ' Integer with rightmost i bits 1 and the rest 0'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/MASKR.html#MASKR'
+    'leftLabel': ''
+    'body': 'maskr($1)'
+   ##
+  'matmul dgemm':
+    'prefix': 'matmul  '
+    'description': ' matrix multiplication using dgemm BLAS'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '''
+     integer, parameter :: n=$1
+     real(dp) :: $2(n,n), $3(n,n), $4(n,n)
+     call dgemm(\'n\',\'n\',n, n, n, 1.0d0, $2, n, $3, n, 0.0d0, $4, n)
+    '''
+   ##
+  'matmul explicit':
+    'prefix': 'matmul '
+    'description': ' explicit matrix multiplication '
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '''
+     integer, parameter :: n=$1
+     real(dp) :: $2(n,n), $3(n,n), $4(n,n)
+     integer :: i, j, k, l
+       do j=1,n
+         do k=1,n
+           do l=1,n
+              $4(l,k) = $2(l,j)*$3(j,k)
+           enddo
+          enddo
+       enddo
+    '''
+   ##
+  'matmul(A,B)':
+    'prefix': 'matmul'
+    'description': ' intrinsic matrix multiplication (short)'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/MATMUL.html#MATMUL'
+    'leftLabel': ''
+    'body': 'matmul($1,$2)'
+   ##
+  'max(a1, a2 [,a3,...])':
+    'prefix': 'max'
+    'description': ' maximum value'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/MAX.html#MAX'
+    'leftLabel': ''
+    'body': 'max($1)'
+   ##
+  'maxexponent(x)':
+    'prefix': 'maxexponent'
+    'description': ' maximum exponent of model type x'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/MAXEXPONENT.html#MAXEXPONENT'
+    'leftLabel': ''
+    'body': 'maxexponent($1)'
+   ##
+  'maxloc(array [, mask=])':
+    'prefix': 'maxloc'
+    'description': ' location of maximum array element - index of maximum with mask'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/MAXLOC.html#MAXLOC'
+    'leftLabel': ''
+    'body': 'maxloc($1, mask=($1>0)'
+   ##
+  'maxval(array [, dim= , mask= ])':
+    'prefix': 'maxval'
+    'description': ' value of maximum array element'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/MAXVAL.html#MAXVAL'
+    'leftLabel': ''
+    'body': 'maxval($1, dim=$2, mask=($1>0))'
+   ##
+  'merge(tsource, fsource, mask)':
+    'prefix': 'merge'
+    'description': ' t_source when mask is true; f_source otherwise.'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/MERGE.html#MERGE'
+    'leftLabel': ''
+    'body': 'merge($1,,mask=$2)'
+   ##
+  'merge_bits(I, J, MASK)':
+    'prefix': 'merge_bits'
+    'description': ' merges the bits of I and J as determined by the mask. The i-th bit of the result is equal to the i-th bit of I if the i-th bit of MASK is 1; it is equal to the i-th bit of J otherwise. '
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/MERGE_005fBITS.html#MERGE_005fBITS'
+    'leftLabel': ''
+    'body': 'merge_bits($1,$2,$3)'
+   ##
+  'min(a1, a2 [,a3,...])':
+    'prefix': 'min'
+    'description': ' minimum value'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/MIN.html#MIN'
+    'leftLabel': ''
+    'body': 'min($1,)'
+   ##
+  'minexponent(real)':
+    'prefix': 'minexponent'
+    'description': ' minimum exponent of model type'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/MINEXPONENT.html#MINEXPONENT'
+    'leftLabel': ''
+    'body': 'minexponent($1)'
+   ##
+  'minloc(array [, mask=])':
+    'prefix': 'minloc'
+    'description': ' location of minimum array element - index of minimum with mask'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/MINLOC.html#MINLOC'
+    'leftLabel': ''
+    'body': 'minloc($1, mask=$1>0)'
+   ##
+  'minval(array [, dim= , mask= ])':
+    'prefix': 'minval'
+    'description': ' value of minimum array element'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/MINVAL.html#MINVAL'
+    'leftLabel': ''
+    'body': 'minval($1, dim=$1, mask=($1>0))'
+   ##
+  'mod(a,p)':
+    'prefix': 'mod'
+    'description': ' a modulo p  i.e. = remainder modulo p, that is a-int(a/p)*p.'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/MOD.html#MOD'
+    'leftLabel': ''
+    'body': 'mod($1,$2)'
+   ##
+  'module ... end module':
+    'prefix': 'module'
+    'description': ' simple module declaration'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '''
+     !-----------------------------------------------------------------------
+     !Module $1
+     !-----------------------------------------------------------------------
+     module $1
+     !use
+     implicit none
+      private ! all by default
+      public ::
+
+      contains
+
+     end module $1
+    '''
+   ##
+  'modulo(a,p)':
+    'prefix': 'modulo'
+    'description': ' a modulo p'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/MODULO.html#MODULO'
+    'leftLabel': ''
+    'body': 'modulo($1,$2)'
+   ##
+  'move_alloc(from,to)':
+    'prefix': 'move_alloc'
+    'description': 'subroutine moves allocation <from> <to>'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/MOVE_005fALLOC.html#MOVE_005fALLOC'
+    'leftLabel': ''
+    'body': 'call move_alloc ($1,$2)'
+   ##
+  'mvbits(from,frompos,len,to,topos)':
+    'prefix': 'mvbits'
+    'description': 'subroutine copies the sequence of bits from to starting at frompos  and with lenght len'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/MVBITS.html#MVBITS'
+    'leftLabel': ''
+    'body': 'call mvbits($1,frompos,len,to,topos)'
+   ##
+  'name = scalar-default-char-variable':
+    'prefix': 'name'
+    'description': ' specifier in the INQUIRE statement is assigned the value of the name of the file if the file has a name; otherwise, it becomes undefined'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'name=$1'
+   ##
+  'named = scalar-logical-variable':
+    'prefix': 'named'
+    'description': ' specifier in the INQUIRE statement is assigned the value true if the file has a name'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'named=$1'
+   ##
+  'namelist /namelist-group-name/ variable-name-list':
+    'prefix': 'namelist'
+    'description': ' to gather a set of variables into a single group, in order to use IO operations on the group as a whole'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'namelist /$1/ $1'
+   ##
+  'nearest(real,direction)':
+    'prefix': 'nearest'
+    'description': ' nearest different real number in the direction given by the sign of direction'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/NEAREST.html#NEAREST'
+    'leftLabel': ''
+    'body': 'nearest($1,$2)'
+   ##
+  '.neqv.':
+    'prefix': 'neqv'
+    'description': ' binary operator  for logical non-equivalence'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '.neqv. ($1)'
+   ##
+  'new_line(c)':
+    'prefix': 'new_line'
+    'description': ' function returns a CHARACTER scalar of length one with the new-line character of the same kind as parameter c'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/NEW_005fLINE.html#NEW_005fLINE'
+    'leftLabel': ''
+    'body': 'new_line($1)'
+   ##
+  'newunit = scalar-int-variable':
+    'prefix': 'newunit'
+    'description': ' specifier in the OPEN statement -  is defined with a processor determined NEWUNIT value if no error occurs during the execution'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'newunit=$1'
+   ##
+  'nextrec = scalar-int-variable':
+    'prefix': 'nextrec'
+    'description': ' specifier in the INQUIRE statement is assigned the value n + 1, where n is the record number of the last record read from or written to the connection for direct access'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'nextrec=$1'
+   ##
+  'nint(real [,kind=])':
+    'prefix': 'nint'
+    'description': ' round to nearest integer value'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/NINT.html#NINT'
+    'leftLabel': ''
+    'body': 'nint($1,kind=$2)'
+   ##
+  'nml = namelist-group-name':
+    'prefix': 'nml'
+    'description': ' specifier in a data transfer statement (READ,WRITE,PRINT)'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'nml=$1'
+   ##
+  'non_overridable':
+    'prefix': 'non_overridable'
+    'description': ' type-bound procedure statement - binding attribute (incompatible with deferred)'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'non_overridable $1 '
+   ##
+  'none':
+    'prefix': 'none'
+    'description': ' just keyword for implicit statement'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'none'
+   ##
+  'nopass':
+    'prefix': 'nopass'
+    'description': ' attribute NOT to pass the object through which it is invoked to the procedure as its first actual argument'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'nopass'
+   ##
+  'norm2(x,dim)':
+    'prefix': 'norm2'
+    'description': ' euclidean vector norm'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/NORM2.html#NORM2'
+    'leftLabel': ''
+    'body': 'norm2($1)'
+   ##
+  'not(integer)':
+    'prefix': 'not '
+    'description': ' ! bit by bit logical complement'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/NOT.html#NOT'
+    'leftLabel': ''
+    'body': 'not($1)'
+   ##
+  '.not.':
+    'prefix': 'not'
+    'description': ' binary operator for logical not'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '.not. ($1)'
+   ##
+  'null([mold])':
+    'prefix': 'null'
+    'description': ' disassociated pointer'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/NULL.html#NULL'
+    'leftLabel': ''
+    'body': 'null($1)'
+   ##
+  'nullify(pointer-object-list)':
+    'prefix': 'nullify'
+    'description': ' explicitly disassociate pointer(s) from its target'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'nullify($1)'
+   ##
+  'num_images([DISTANCE, FAILED])':
+    'prefix': 'num_images'
+    'description': ' If DISTANCE is not present or has value 0, the number of images in the current team is returned'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/NUM_005fIMAGES.html#NUM_005fIMAGES'
+    'leftLabel': ''
+    'body': 'num_images($1)'
+   ##
+  'number = scalar-int-variable':
+    'prefix': 'number'
+    'description': ' specifier in the INQUIRE statement is assigned the value of the external unit number of the unit that is connected to the file or -1'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'number=$1'
+   ##
+  'numeric_storage_size':
+    'prefix': 'numeric_storage_size'
+    'description': ' the size in bits of a numeric storage unit '
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'numeric_storage_size'
+   ##
+  'open scratch_file':
+    'prefix': 'open    '
+    'description': ' open temporary file - will be deleted after close'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '''
+        integer :: iounit, ios
+        open(newunit=iounit, iostat=ios, status="scratch", action="readwrite")
+        if (ios /= 0) stop "Error opening file $1"
+    '''
+   ##
+  'open output_file':
+    'prefix': 'open   '
+    'description': ' open file for writing only'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '''
+        integer :: iounit, ios
+        character(len=*):: $1
+        open(newunit=iounit, file=$1, iostat=ios, status="new", action="write")
+        if (ios /= 0) stop "Error opening file $1"
+    '''
+   ##
+  'open input_file':
+    'prefix': 'open  '
+    'description': ' open file for reading only'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '''
+        integer :: iounit, ios
+        character(len=*):: $1
+        open(newunit=iounit, file=$1, iostat=ios, status="old", action="read")
+        if (ios /= 0) stop "Error opening file $1"
+    '''
+   ##
+  'open arbitrary_file':
+    'prefix': 'open '
+    'description': ' general interface for open instruction'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '''
+        integer :: iounit,ios
+        character(len=*):: $1
+        open(newunit=iounit, file=$1, iostat=ios, status="old/new/replace/scratch/unknown", action="read/write/readwrite", access="sequential/direct")
+        if(ios /= 0) stop "Error opening file $1"
+    '''
+   ##
+  'open file':
+    'prefix': 'open'
+    'description': ' quick open file'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '''
+        integer :: iounit, ios
+        character(len=*):: $1
+        open(newunit=iounit, file=$1, iostat=ios)
+        if (ios /= 0) stop "Error opening file $1"
+    '''
+   ##
+  'opened = scalar-logical-variable':
+    'prefix': 'opened'
+    'description': ' specifier in the INQUIRE statement assignes the value true if the file specified is connected to a unit; otherwise, false is assigned. '
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'opened=$1'
+   ##
+  'operator':
+    'prefix': 'operator      '
+    'description': ' just operator keyword'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'operator $1'
+   ##
+  'generic, public :: operator(*) => ':
+    'prefix': 'operator     '
+    'description': ' declare operator (*) overloading'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': ' generic, public :: operator(*) => $1'
+   ##
+  'generic, public :: operator(/) => ':
+    'prefix': 'operator    '
+    'description': ' declare operator (/) overloading'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': ' generic, public :: operator(/) => $1'
+   ##
+  'generic, public :: operator(-) => ':
+    'prefix': 'operator   '
+    'description': ' declare operator (-) overloading'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': ' generic, public :: operator(-) => $1'
+   ##
+  'generic, public :: operator(+) => ':
+    'prefix': 'operator  '
+    'description': ' declare operator (+) overloading'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': ' generic, public :: operator(+) => $1'
+   ##
+  'generic, public :: operator(.operator_name.) =>':
+    'prefix': 'operator '
+    'description': ' declare new operator with procedure declaration'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '''
+        generic, public :: operator($1) => $2
+        procedure, private :: $2
+    '''
+   ##
+  'generic, public :: operator(.operator_name.) => procedure_name':
+    'prefix': 'operator'
+    'description': ' declare operator overloading (simple)'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'generic, public :: operator($1) => $2'
+   ##
+  'optional':
+    'prefix': 'optional'
+    'description': ' keyword for procedure arguments declaration'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'optional $1'
+   ##
+  '.or.':
+    'prefix': 'or'
+    'description': ' binary operator for logical OR'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '.or. ($1)'
+   ##
+  'output_unit':
+    'prefix': 'output_unit'
+    'description': ' the unit number for the preconnected standard output unit, defined in iso_fortran_env module'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'output_unit'
+   ##
+  'pack(array, mask[,vector])':
+    'prefix': 'pack'
+    'description': ' pack elements corresponding to true elements of mask into rank-one result'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/PACK.html#PACK'
+    'leftLabel': ''
+    'body': 'pack($1,mask=($1>0))'
+   ##
+  'pad = char-expr':
+    'prefix': 'pad'
+    'description': ' specifier in OPEN/INQUIRE or in data transfer statement (READ,WRITE,PRINT):  "YES" or "NO"'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'pad=$1'
+   ##
+  'parameter':
+    'prefix': 'parameter'
+    'description': ' keyword for constant declaration'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'parameter $1'
+   ##
+  'parity(mask [,dim])':
+    'prefix': 'parity'
+    'description': ' true if number of true values is odd'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/PARITY.html#PARITY'
+    'leftLabel': ''
+    'body': 'parity($1)'
+   ##
+  'pass(x)':
+    'prefix': 'pass '
+    'description': ' attribute to pass the object through which it is invoked to the procedure as specified argument x'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'pass($1)'
+   ##
+  'pass':
+    'prefix': 'pass'
+    'description': ' attribute to pass the object through which it is invoked to the procedure as its first actual argument'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'pass $1'
+   ##
+  'pending = scalar-logical-variable':
+    'prefix': 'pending'
+    'description': ' specifier in the INQUIRE statement, true if previously pending asynchronous data transfers are complete'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'pending=$1'
+   ##
+  'real(x), parameter :: pi':
+    'prefix': 'pi'
+    'description': ' declare PI constant in dp or qp real precision'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'real($1), parameter :: pi = 3.141592653589793238462643383279502884197169399375105820974944592307816406286_$1'
+   ##
+  'pointer':
+    'prefix': 'pointer'
+    'description': ' keyword for pointer declaration'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'pointer $1'
+   ##
+  'popcnt(i)':
+    'prefix': 'popcnt'
+    'description': ' returns the number of bits set (1 bits) in the binary representation of I'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/POPCNT.html#POPCNT'
+    'leftLabel': ''
+    'body': 'popcnt($1)'
+   ##
+  'poppar(i)':
+    'prefix': 'poppar'
+    'description': 'returns parity of the integer I, i.e. the parity of the number of bits set (1 bits) in the binary representation of I.  =1 if popcnt(i) is odd or =0 otherwise'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/POPPAR.html#POPPAR'
+    'leftLabel': ''
+    'body': 'poppar($1)'
+   ##
+  'pos = int-expr':
+    'prefix': 'pos'
+    'description': ' specifier in INQUIRE or in a data transfer statement (READ,WRITE,PRINT)  specifies the file position in file storage units'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'pos=$1'
+   ##
+  'position = char-expr':
+    'prefix': 'position'
+    'description': ' specifier in the OPEN/INQUIRE statement: "ASIS", "REWIND", or "APPEND"'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'position=$1'
+   ##
+  'precision(x)':
+    'prefix': 'precision'
+    'description': ' decimal precision in the model for x'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/PRECISION.html#PRECISION'
+    'leftLabel': ''
+    'body': 'precision($1)'
+   ##
+  'present(x)':
+    'prefix': 'present'
+    'description': ' true if optional argument x is present'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/PRESENT.html#PRESENT'
+    'leftLabel': ''
+    'body': 'present($1)'
+   ##
+  'print*, "something"':
+    'prefix': 'print'
+    'description': ' print quick instead of write(*,*)'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'print * , $1'
+   ##
+  'private':
+    'prefix': 'private'
+    'description': ' statement in type definition, making its components private'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'private $1'
+   ##
+  'procedure(proc), pointer :: ':
+    'prefix': 'procedure     '
+    'description': ' procedure declaration with pointer attribute'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'procedure ($1), pointer :: $1 => NULL()'
+   ##
+  'procedure, nopass, pointer :: ':
+    'prefix': 'procedure    '
+    'description': ' procedure declaration with pointer and nopass attributes'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'procedure, nopass, pointer :: $1 => $2'
+   ##
+  'module procedure':
+    'prefix': 'procedure   '
+    'description': ' simple module procedure declaration in interface'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'module procedure $1'
+   ##
+  'procedure, pass :: ':
+    'prefix': 'procedure  '
+    'description': ' procedure declaration with pass attribute'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'procedure, pass :: $1'
+   ##
+  'procedure':
+    'prefix': 'procedure '
+    'description': ' simple procedure declaration'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'procedure $1'
+   ##
+  'procedure, deferred, pass :: ':
+    'prefix': 'procedure'
+    'description': ' procedure declaration with deferred and pass attributes'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'procedure, deferred, pass :: $1 => $2'
+   ##
+  'product(array [,mask]) or (array, dim [,mask])':
+    'prefix': 'product'
+    'description': ' product of array elements'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/PRODUCT.html#PRODUCT'
+    'leftLabel': ''
+    'body': 'product($1, dim=$1, mask=($1>0))'
+   ##
+  'program main':
+    'prefix': 'program'
+    'description': ' simple main program declaration'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '''
+        !-----------------------------------------------------------------------
+        !Main program $1
+        !-----------------------------------------------------------------------
+        program $1
+        ! use
+        implicit none
+
+        ! contains
+
+        end program $1
+    '''
+   ##
+  'protected':
+    'prefix': 'protected'
+    'description': ' statement in type definition, making its components protected - available in derived types too'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'protected'
+   ##
+  'public':
+    'prefix': 'public'
+    'description': ' statement in type definition, making its components public - it is default in fortran'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'public $1'
+   ##
+  'pure':
+    'prefix': 'pure'
+    'description': ' using this prefix declare procedure or function that has no side effects'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'pure'
+   ##
+  'radix(x)':
+    'prefix': 'radix'
+    'description': ' base of the model for numbers like x'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/RADIX.html#RADIX'
+    'leftLabel': ''
+    'body': 'radix($1)'
+   ##
+  'random_number(harvest)':
+    'prefix': 'random_number'
+    'description': ' random numbers in range 0 ≤ x < 1.'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/RANDOM_005fNUMBER.html#RANDOM_005fNUMBER'
+    'leftLabel': ''
+    'body': '''
+     ! Random number between 0 and 1
+     call random_number($1)
+    '''
+   ##
+  'random_seed(size=S, put=P, get=G)':
+    'prefix': 'random_seed'
+    'description': ' initialize or restart random number generator'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/RANDOM_005fSEED.html#RANDOM_005fSEED'
+    'leftLabel': ''
+    'body': 'call random_seed(size=$1, put=$2)'
+   ##
+  'range(integer_real_complex)':
+    'prefix': 'range'
+    'description': ' decimal exponent of model'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/RANGE.html#RANGE'
+    'leftLabel': ''
+    'body': 'range($1)'
+   ##
+  'rank(A)':
+    'prefix': 'rank'
+    'description': ' returns the rank of a scalar or array data object. '
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/RANK.html#RANK'
+    'leftLabel': ''
+    'body': 'rank($1)'
+   ##
+  'complex_number%re':
+    'prefix': 're'
+    'description': ' access real part of the complex'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '$1%re'
+   ##
+  'read':
+    'prefix': 'read   '
+    'description': ' read instruction using nonadvancing mode'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '''
+        integer :: ios
+        read(unit=$1, fmt="()", iostat=ios, advance='NO', size=)
+        if(ios /= 0) stop "Read error in file unit $1"
+    '''
+   ##
+  'read file':
+    'prefix': 'read  '
+    'description': ' simple read file instruction'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '''
+        integer :: ios
+        read(unit=$1, fmt="()", iostat=ios)
+        if(ios /= 0) stop "Read error in file"
+    '''
+   ##
+  'read = scalar-default-char-variable':
+    'prefix': 'read '
+    'description': ' specifier in the INQUIRE statement  is assigned the value "YES" if READ is included in the set of allowed actions for the file, "NO" - if not, or "UNKNOWN"'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'read=$1'
+   ##
+  'read * , something':
+    'prefix': 'read'
+    'description': ' simple read instruction from console'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'read * , $1'
+   ##
+  'readwrite = scalar-default-char-variable':
+    'prefix': 'readwrite'
+    'description': ' specifier in the INQUIRE statement is assigned the value "YES" if READWRITE is included in the set of allowed actions for the file, "NO" - if not, or "UNKNOWN"'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'readwrite=$1'
+   ##
+  'real(integer_real_complex [,kind=])':
+    'prefix': 'real  '
+    'description': ' convert to real'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/REAL.html#REAL'
+    'leftLabel': ''
+    'body': 'real($1,kind=$2) '
+   ##
+  'real(wp), allocatable, dimension(:) ::':
+    'prefix': 'real '
+    'description': ' declare real, allocatable array with precision wp'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'real(wp), allocatable, dimension(:):: $1'
+   ##
+  'real(kind=) :: x':
+    'prefix': 'real'
+    'description': ' declare real wariable with explicit kind value'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'real(kind=$1) :: $2'
+   ##
+  'real128':
+    'prefix': 'real128'
+    'description': ' named constants for desired kind value 128-bit real '
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'real128'
+   ##
+  'real32':
+    'prefix': 'real32'
+    'description': ' named constants for desired kind value 32-bit real '
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'real32'
+   ##
+  'real64':
+    'prefix': 'real64'
+    'description': ' named constants for desired kind value 64-bit real '
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'real64'
+   ##
+  'real_kinds':
+    'prefix': 'real_kinds'
+    'description': ' named kind type constant'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'real_kinds'
+   ##
+  'rec = int-expr':
+    'prefix': 'rec'
+    'description': ' specifier in a data transfer statement (READ,WRITE,PRINT)  specifies the number of the record that is to be read or written'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'rec=$1'
+   ##
+  'recl = scalar-int-expr':
+    'prefix': 'recl'
+    'description': ' specifier in the OPEN/INQUIRE statement with the positive value - defines the length of each record in a file'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'recl=$1'
+   ##
+  'recursive':
+    'prefix': 'recursive'
+    'description': ' recursive prefix for function or subroutine declaration'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'recursive $1'
+   ##
+  'repeat(string,ncopies)':
+    'prefix': 'repeat'
+    'description': ' concatenate n copies of string'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/REPEAT.html#REPEAT'
+    'leftLabel': ''
+    'body': 'repeat($1,$2)'
+   ##
+  'reshape(source, shape [,pad] [,order])':
+    'prefix': 'reshape'
+    'description': ' change the shape of an array, with possible permutation of the subscripts'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/RESHAPE.html#RESHAPE'
+    'leftLabel': ''
+    'body': 'reshape($1, shape=(//), pad=(//), order=(/2,1/))'
+   ##
+  'result(something)':
+    'prefix': 'result'
+    'description': ' result clause useful for function'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'result($1)'
+   ##
+  'return':
+    'prefix': 'return'
+    'description': ' return statement provides an alternative means of returning control from a subprogram'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'return'
+   ##
+  'rewind(file_index,iostat=ios)':
+    'prefix': 'rewind '
+    'description': ' rewind file to start'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '''
+        integer :: iounit
+        integer :: ios
+        !go back to start
+        rewind(iounit,iostat=ios)
+        if (ios/=0) then !something is wrong
+        write(*,*) "cannot rewind file. STOP"
+        stop
+        endif
+    '''
+   ##
+  'rewind([unit=]u [,iostat=ios] [,err=error-label])':
+    'prefix': 'rewind'
+    'description': ' rewind to start, simple'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'rewind(unit=$1)'
+   ##
+  'round = char-expr':
+    'prefix': 'round'
+    'description': ' specifier in OPEN/INQUIRE or in data transfer statement (READ,WRITE,PRINT): "UP", "DOWN", "ZERO", "NEAREST", "COMPATIBLE", or "PROCESSOR_DEFINED"'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'round=$1'
+   ##
+  'rrspacing(real)':
+    'prefix': 'rrspacing'
+    'description': ' reciprocal of relative spacing of model'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/RRSPACING.html#RRSPACING'
+    'leftLabel': ''
+    'body': 'rrspacing($1)'
+   ##
+  'same_type_as(A,B)':
+    'prefix': 'same_type_as'
+    'description': ' query dynamic types for equality.  returns true if the dynamic type of A is the same as the dynamic type of B'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/SAME_005fTYPE_005fAS.html#SAME_005fTYPE_005fAS'
+    'leftLabel': ''
+    'body': 'same_type_as($1,$2)'
+   ##
+  'save':
+    'prefix': 'save'
+    'description': ' attribute makes sure that value of the variable is always retained in program'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'save $1'
+   ##
+  'scale(real,integer)':
+    'prefix': 'scale'
+    'description': ' return value is  is X * RADIX(X)**I'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/SCALE.html#SCALE'
+    'leftLabel': ''
+    'body': 'scale($1,$2) '
+   ##
+  'scan(string,set [,back])':
+    'prefix': 'scan'
+    'description': ' Index of leftmost (rightmost if back is true) character of string that is in set; zero if none'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/SCAN.html#SCAN'
+    'leftLabel': ''
+    'body': 'scan($1,$2)'
+   ##
+  'select case(value)':
+    'prefix': 'select case'
+    'description': ' case control construction'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '''
+        select case ($1)
+        case ()
+        case ()
+        case default
+        end select
+    '''
+   ##
+  'select type([associate-name =>] selector)':
+    'prefix': 'select type'
+    'description': ' case control to execute alternative code depending on the dynamic type of a polymorphic entity'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '''
+        select type ($1 => $2)
+        type is ()
+        class is ()
+        class default
+        end select
+    '''
+   ##
+  'selected_char_kind(char)':
+    'prefix': 'selected_char_kind'
+    'description': ' function returns the kind value for the character set named  "default", "ascii", or  "iso_10646"'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/SELECTED_005fCHAR_005fKIND.html#SELECTED_005fCHAR_005fKIND'
+    'leftLabel': ''
+    'body': 'select_char_kind($1)'
+   ##
+  'selected_int_kind(integer)':
+    'prefix': 'selected_int_kind'
+    'description': ' function  return the kind value of the smallest integer type that can represent all values ranging from -10^R (exclusive) to 10^R (exclusive) or -1'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/SELECTED_005fINT_005fKIND.html#SELECTED_005fINT_005fKIND'
+    'leftLabel': ''
+    'body': 'selected_int_kind($1)'
+   ##
+  'selected_real_kind(integer P,integer R, integer RADIX)':
+    'prefix': 'selected_real_kind'
+    'description': ' function returns the kind value of a real data type with decimal precision of at least P digits, exponent range of at least R, and with a radix of RADIX'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/SELECTED_005fREAL_005fKIND.html#SELECTED_005fREAL_005fKIND'
+    'leftLabel': ''
+    'body': 'selected_real_kind($1,$2) '
+   ##
+  'sequential = scalar-default-char-variable':
+    'prefix': 'sequential'
+    'description': ' specifier in the INQUIRE statement is assigned the value "YES" if SEQUENTIAL is included in the set of allowed actions for the file, "NO" - if not, or "UNKNOWN"'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'sequential=$1'
+   ##
+  'set_exponent(real X,integer I)':
+    'prefix': 'set_exponent'
+    'description': ' function returns the real number whose fractional part is that that of X and whose exponent part is I, i.e. FRACTION(X) * RADIX(X)**I'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/SET_005fEXPONENT.html#SET_005fEXPONENT'
+    'leftLabel': ''
+    'body': 'set_exponent($1,)'
+   ##
+  'shape(source [,kind])':
+    'prefix': 'shape'
+    'description': ' function determines the shape of an array source'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/SHAPE.html#SHAPE'
+    'leftLabel': ''
+    'body': 'shape($1)'
+   ##
+  'shifta(i,shift)':
+    'prefix': 'shifta'
+    'description': ' function returns a value corresponding to I with all of the bits shifted right by SHIFT places. If the absolute value of SHIFT is greater than BIT_SIZE(I), the value is undefined.'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/SHIFTA.html#SHIFTA'
+    'leftLabel': ''
+    'body': 'shifta($1,$2)'
+   ##
+  'shiftl(i,shift)':
+    'prefix': 'shiftl'
+    'description': ' function returns a value corresponding to I with all of the bits shifted left by SHIFT places. If the absolute value of SHIFT is greater than BIT_SIZE(I), the value is undefined.'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/SHIFTL.html#SHIFTL'
+    'leftLabel': ''
+    'body': 'shiftl($1,$2)'
+   ##
+  'shiftr(i,shift)':
+    'prefix': 'shiftr'
+    'description': ' function returns a value corresponding to I with all of the bits shifted right by SHIFT places. If the absolute value of SHIFT is greater than BIT_SIZE(I), the value is undefined.'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/SHIFTR.html#SHIFTR'
+    'leftLabel': ''
+    'body': 'shiftr($1,$2)'
+   ##
+  'sign(A,B)':
+    'prefix': 'sign '
+    'description': ' returns absolute value of A   multiplied with sign of B'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/SIGN.html#SIGN'
+    'leftLabel': ''
+    'body': 'sign($1,$2)'
+   ##
+  'sign = char-expr':
+    'prefix': 'sign'
+    'description': ' specifier changes the sign mode in OPEN/INQUIRE or in data transfer statement (READ,WRITE,PRINT) to "PLUS", "SUPPRESS", or "PROCESSOR_DEFINED". '
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'sign=$1'
+   ##
+  'sin(real_complex X)':
+    'prefix': 'sin'
+    'description': ' sine of  REAl/COMPLEX angle in radians'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/SIN.html#SIN'
+    'leftLabel': ''
+    'body': 'sin($1)'
+   ##
+  'sinh(real)':
+    'prefix': 'sinh'
+    'description': ' hyperbolic sine of argument'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/SINH.html#SINH'
+    'leftLabel': ''
+    'body': 'sinh($1)'
+   ##
+  'size(array [,dim=])':
+    'prefix': 'size '
+    'description': ' function returns number of elements in dimension dim'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/SIZE.html#SIZE'
+    'leftLabel': ''
+    'body': 'size($1)'
+   ##
+  'size = int-variable':
+    'prefix': 'size'
+    'description': ' specifier in INQUIRE or in a data transfer statement (READ,WRITE,PRINT) becomes defined with the count of the characters transferred during execution of the input statement. Blanks inserted as padding are not counted.'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'size=$1'
+   ##
+  'spacing(real)':
+    'prefix': 'spacing'
+    'description': ' returns absolute spacing of model numbers near argument'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/SPACING.html#SPACING'
+    'leftLabel': ''
+    'body': 'spacing($1)'
+   ##
+  'spread(source, dim, ncopies)':
+    'prefix': 'spread'
+    'description': ' replicates a SOURCE array NCOPIES times along a specified dimension DIM forming an array of rank one greater'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/SPREAD.html#SPREAD'
+    'leftLabel': ''
+    'body': 'spread($1,,)'
+   ##
+  'sqrt(real_complex)':
+    'prefix': 'sqrt'
+    'description': ' square root of argument'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/SQRT.html#SQRT'
+    'leftLabel': ''
+    'body': 'sqrt($1)'
+   ##
+  'stat_locked':
+    'prefix': 'stat_locked'
+    'description': 'Scalar default-integer constant used as STAT= return value by LOCK to denote that the lock variable is locked by the executing image. (Fortran 2008 or later.) '
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'stat_locked'
+   ##
+  'stat_locked_other_image':
+    'prefix': 'stat_locked_other_image'
+    'description': ' Scalar default-integer constant used as stat= return value by unlock to denote that the lock variable is locked by another image'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'stat_locked_other_image'
+   ##
+  'stat_stopped_image':
+    'prefix': 'stat_stopped_image'
+    'description': ' Positive, scalar default-integer constant used as stat= return value if the argument in the statement requires synchronisation with an image, which has initiated the termination of the execution'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'stat_stopped_image'
+   ##
+  'stat_unlocked':
+    'prefix': 'stat_unlocked'
+    'description': 'Scalar default-integer constant used as stat= return value by unlock to denote that the lock variable is unlocked.'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'stat_unlocked'
+   ##
+  'status = char-expr':
+    'prefix': 'status'
+    'description': ' specifier in the OPEN statement: "OLD", "NEW", "SCRATCH", "REPLACE", or "UNKNOWN"'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'status=$1'
+   ##
+  'stop "message"':
+    'prefix': 'stop'
+    'description': ' another way to stop program execution where message is char or integer'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'stop $1'
+   ##
+  'storage_size(OBJECT [, kind ] )':
+    'prefix': 'storage_size'
+    'description': ' returns the size, in bits, that would be taken in memory by an array element with the dynamic type of OBJECT'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/STORAGE_005fSIZE.html#STORAGE_005fSIZE'
+    'leftLabel': ''
+    'body': 'storage_size($1)'
+   ##
+  'stream = scalar-default-char-variable':
+    'prefix': 'stream'
+    'description': ' specifier in the INQUIRE statement is assigned the value "YES" if STREAM is included in the set of allowed actions for the file, "NO" - if not, or "UNKNOWN"'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'stream=$1'
+   ##
+  'submodule ... end submodule':
+    'prefix': 'submodule'
+    'description': ' simple submodule declaration'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '''
+        !-----------------------------------------------------------------------
+        !Submodule $1
+        !-----------------------------------------------------------------------
+        submodule ($2) $1
+        implicit none
+        private ! all by default
+        public ::
+        contains
+
+        end submodule $1
+    '''
+   ##
+  'overloaded_assignment_subroutine(this,rhs)':
+    'prefix': 'subroutine     '
+    'description': ' overloaded assignment operator subroutine for derived type'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '''
+        !-----------------------------------------------------------------------
+        !Subroutine is overloaded assignment operator for $1_type
+        !-----------------------------------------------------------------------
+        subroutine  $1_overloaded_assignment_sub(this,rhs)
+            implicit none
+            class($1_type), intent(inout) :: this ! may be generic_base_type or any derived
+            type($1_type), intent(in) :: rhs
+            this % $2 = rhs % $3
+        end subroutine $1_overloaded_assignment_sub
+    '''
+   ##
+  'subroutine()':
+    'prefix': 'subroutine    '
+    'description': ' module subroutine simple'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '''
+        module subroutine $1()
+
+        end subroutine $1
+    '''
+   ##
+  'subroutine(this, ...)':
+    'prefix': 'subroutine   '
+    'description': ' simple module subroutine'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '''
+        !-----------------------------------------------------------------------
+        !Subroutine $1
+        !-----------------------------------------------------------------------
+        module subroutine  $1(this, $2, $3)
+        implicit none
+        type($4), intent(in) :: this
+        $5, intent(out) :: $2
+        $6, intent(inout) :: $3
+        end subroutine $1
+    '''
+   ##
+  'subroutine name (this, )':
+    'prefix': 'subroutine  '
+    'description': ' declaration of a subroutine with type intent arguments'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '''
+        !-----------------------------------------------------------------------
+        !Subroutine $1
+        !-----------------------------------------------------------------------
+        subroutine  $1(this)
+        implicit none
+        type($2), intent(in) :: this
+
+        end subroutine $1
+    '''
+   ##
+  'subroutine name (args)':
+    'prefix': 'subroutine'
+    'description': ' simple subroutine declaration'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '''
+        !-----------------------------------------------------------------------
+        !Subroutine $1
+        !-----------------------------------------------------------------------
+        subroutine $1($2)
+        implicit none
+        $3, intent(in) :: $2
+
+        end subroutine $1
+    '''
+   ##
+  'subroutine name (args)':
+    'prefix': 'subroutine '
+    'description': ' just subroutine keyword'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'subroutine $1 ($2)'
+   ##
+  'sum(array [,dim=] [,mask=])':
+    'prefix': 'sum'
+    'description': ' sum of elements'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/SUM.html#SUM'
+    'leftLabel': ''
+    'body': 'sum($1, dim=$1, mask=($1>0))'
+   ##
+  'sync memory':
+    'prefix': 'sync   '
+    'description': ' statement ends one segment and begins another'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'sync memory'
+   ##
+  'sync images(*)':
+    'prefix': 'sync  '
+    'description': ' performs a synchronization of the image with each of the other images'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'sync images(*)'
+   ##
+  'sync images (image-set)':
+    'prefix': 'sync '
+    'description': ' performs a synchronization of the image that executes it with each of the other images in its image set'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'sync images($1)'
+   ##
+  'sync all':
+    'prefix': 'sync'
+    'description': ' provides a barrier where all images synchronize before executing further statements'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'sync all'
+   ##
+  'system_clock([count=] [,count_rate=] [,count_max=])':
+    'prefix': 'system_clock'
+    'description': ' subroutine returns system clock params, all arguments optional and intent(out)'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/SYSTEM_005fCLOCK.html#SYSTEM_005fCLOCK'
+    'leftLabel': ''
+    'body': 'call system_clock(count=$1, count_rate=$2, count_max=$3)'
+   ##
+  'tan(real)':
+    'prefix': 'tan'
+    'description': ' function returns tangent of angle in radians'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/TAN.html#TAN'
+    'leftLabel': ''
+    'body': 'tan($1)'
+   ##
+  'tanh(real)':
+    'prefix': 'tanh'
+    'description': ' function returns hyperbolic tangent of angle in radians'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/TANH.html#TANH'
+    'leftLabel': ''
+    'body': 'tanh($1)'
+   ##
+  'target':
+    'prefix': 'target'
+    'description': ' attribute of a variable that specifies possible usage of some pointer for this variable'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'target $1'
+   ##
+  'this_image(DISTANCE)':
+    'prefix': 'this_image '
+    'description': ' DISTANCE - nonnegative scalar integer (not permitted together with COARRAY)'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/THIS_005fIMAGE.html#THIS_005fIMAGE'
+    'leftLabel': ''
+    'body': 'this_image($1)'
+
+  'this_image(COARRAY [, DIM])':
+    'prefix': 'this_image  '
+    'description': ' when the COARRAY is present, if DIM is not present, a rank-1 array with corank elements is returned, containing the cosubscripts for COARRAY specifying the invoking image. If DIM is present, a scalar is returned, with the value of the DIM element of THIS_IMAGE(COARRAY)'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/THIS_005fIMAGE.html#THIS_005fIMAGE'
+    'leftLabel': ''
+    'body': 'this_image($1)'
+   ##
+  'this_image()':
+    'prefix': 'this_image'
+    'description': ' function returns the index of the invoking image as a default integer scalar.'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/THIS_005fIMAGE.html#THIS_005fIMAGE'
+    'leftLabel': ''
+    'body': 'this_image() '
+   ##
+  'tiny(X)':
+    'prefix': 'tiny'
+    'description': ' returns the smallest positive (non zero) number in the model of the type of X'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/TINY.html#TINY'
+    'leftLabel': ''
+    'body': 'tiny($1)'
+   ##
+  'trailz(integer)':
+    'prefix': 'trailz'
+    'description': ' returns the number of trailing zero bits of an integer '
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/TRAILZ.html#TRAILZ'
+    'leftLabel': ''
+    'body': 'trailz($1) '
+   ##
+  'transfer(source,mold [,size])':
+    'prefix': 'transfer'
+    'description': ' interprets the bitwise representation of SOURCE in memory as if it is the representation of a variable or array of the same type and type parameters as MOLD. This is approximately equivalent to the C concept of casting one type to another'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/TRANSFER.html#TRANSFER'
+    'leftLabel': ''
+    'body': 'transfer($1,$2)'
+   ##
+  'transpose(matrix)':
+    'prefix': 'transpose'
+    'description': ' transposes an array of rank two. Element (i, j) of the result has the value MATRIX(j, i), for all i, j'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/TRANSPOSE.html#TRANSPOSE'
+    'leftLabel': ''
+    'body': 'transpose($1)'
+   ##
+  'trim(string)':
+    'prefix': 'trim'
+    'description': ' removes trailing blank characters of a string'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/TRIM.html#TRIM'
+    'leftLabel': ''
+    'body': 'trim($1) '
+   ##
+  '.true.':
+    'prefix': 'true'
+    'description': ' TRUE logical statement in fortran'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '.true. $1'
+   ##
+  'type(derived_type) :: object':
+    'prefix': 'type       '
+    'description': ' simple declaration of derived type'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'type($1) :: $1'
+   ##
+  'type ... contains ... end type + methods':
+    'prefix': 'type      '
+    'description': ' extended derived type declaration with contains and methods'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '''
+        type $1
+        $2
+        logical, private :: first = .true.
+        contains
+        procedure, pass :: init => init_$1
+        procedure, pass :: print => print_$1
+        procedure, pass :: save => save_$1
+        final :: finalise_$1
+        end type $1
+
+        contains
+
+        !-----------------------------------------------------------------------
+        !Subroutine init_$1
+        !-----------------------------------------------------------------------
+        subroutine  init_$1(this)
+        implicit none
+        class($1), intent(inout) :: this
+        #ifdef $3
+            write(*,*) __FILE__, ": init_$1"
+        #endif
+        this % first = .false.
+        end subroutine init_$1
+
+        !-----------------------------------------------------------------------
+        !Subroutine
+        !-----------------------------------------------------------------------
+        subroutine  print_$1(this)
+        implicit none
+        class($1), intent(in) :: this
+        #ifdef $3
+            write(*,*) __FILE__, ": print_$1"
+        #endif
+
+        end subroutine print_$1
+
+        !-----------------------------------------------------------------------
+        !Subroutine save_$1
+        !-----------------------------------------------------------------------
+        subroutine  save_$1(this)
+        implicit none
+        class($1), intent(in) :: this
+        #ifdef $3
+            write(*,*) __FILE__, ": save_$1"
+        #endif
+
+        end subroutine save_$1
+
+        !-----------------------------------------------------------------------
+        !Subroutine
+        !-----------------------------------------------------------------------
+        elemental subroutine  finalise_$1(this)
+        implicit none
+        type($1), intent(inout) :: this
+
+        this % first = .true.
+        end subroutine finalise_$1
+    '''
+   ##
+  'type ... contains ... end type':
+    'prefix': 'type     '
+    'description': ' simple derived type declaration with contains'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '''
+        type $1
+        $2
+        contains
+        procedure, pass :: =>
+        final ::
+        end type $1
+    '''
+   ##
+  'type, extends(name) :: new_type  ...   end type':
+    'prefix': 'type    '
+    'description': ' simple derived type from some base type '
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '''
+        type, extends($1) :: $2
+        $3
+        end type $2
+    '''
+   ##
+  'type ... end type':
+    'prefix': 'type   '
+    'description': ' simple derived type declaration'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '''
+        type $1
+        $2
+        end type$1
+    '''
+   ##
+  'type, extends(name) :: new_type  ...   end type':
+    'prefix': 'type  '
+    'description': ' derived type from some base type '
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '''
+        type, extends($1) :: $2
+        $3
+        contains
+        procedure, pass :: =>
+        final ::
+        end type $2
+    '''
+   ##
+  'type, bind(c) :: name ... end type':
+    'prefix': 'type '
+    'description': ' simple derived type declaration with bind(c)'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '''
+        type, bind(c) :: $1
+        $2
+        end type $1
+    '''
+   ##
+  'type, abstract :: name ... end type':
+    'prefix': 'type'
+    'description': ' declare abstract type with interface and procedure'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '''
+        type, abstract :: $1
+
+        contains
+        procedure ($1_procedure), deferred, pass ::
+        end type $1
+
+        abstract interface
+        subroutine $1_procedure(this)
+        import  :: $1
+        class($1), intent(inout) :: this
+        end subroutine $1_procedure
+        end interface
+    '''
+   ##
+  'type is(X)':
+    'prefix': 'typeis'
+    'description': ' "type is" statement from select type'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'type is ($1)'
+   ##
+  'ubound(array_name [, dim])':
+    'prefix': 'ubound'
+    'description': ' returns the upper bounds of an array, or a single upper bound along the DIM dimension'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/UBOUND.html#UBOUND'
+    'leftLabel': ''
+    'body': 'ubound($1)'
+   ##
+  'ucobound(coarray [, dim [, kind]])':
+    'prefix': 'ucobound'
+    'description': '! returns the upper cobounds of a coarray, or a single upper cobound along the DIM codimension'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/UCOBOUND.html#UCOBOUND'
+    'leftLabel': ''
+    'body': 'ucobound($1)'
+   ##
+  'unformatted = scalar-default-char-variable':
+    'prefix': 'unformatted'
+    'description': ' specifier in the INQUIRE statement becomes defined to the value "YES", "NO", or "UNKNOWN", depending on whether the file may be opened for unformatted access'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'unformatted=$1'
+   ##
+  'unit = io-unit':
+    'prefix': 'unit'
+    'description': ' specifier in OPEN/CLOSE or data transfer statement (READ,WRITE)'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'unit=$1'
+   ##
+  'unlock(lock-variable)':
+    'prefix': 'unlock'
+    'description': ' unlock statement defined in the intrinsic module iso_fortran_env'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'unlock($1)'
+   ##
+  'unpack(vector, mask, field)':
+    'prefix': 'unpack'
+    'description': ' stores the elements of VECTOR in an array of higher rank'
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/UNPACK.html#UNPACK'
+    'leftLabel': ''
+    'body': 'unpack($1, mask=($1>0),$2)'
+   ##
+  'use, intrinsic :: module_name':
+    'prefix': 'use         '
+    'description': ' use an intrinsic module '
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'use, intrinsic :: $1'
+   ##
+  'use module':
+    'prefix': 'use        '
+    'description': ' single use statement'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'use $1'
+   ##
+  'use module x, a => ax':
+    'prefix': 'use       '
+    'description': ' use statement with rename-list'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'use $1, $2 => $3'
+   ##
+  'use, intrinsic :: ieee_exceptions':
+    'prefix': 'use      '
+    'description': ' use intrinsic ieee module'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'use, intrinsic :: ieee_exceptions'
+   ##
+  'use module , only: x':
+    'prefix': 'use     '
+    'description': ' use statement with only-list'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'use $1, only: $2'
+   ##
+  'use, intrinsic :: ieee_arithmetic':
+    'prefix': 'use    '
+    'description': ' use intrinsic ieee module'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'use, intrinsic :: ieee_arithmetic'
+   ##
+  'use, intrinsic :: ieee_features':
+    'prefix': 'use   '
+    'description': ' use intrinsic ieee module'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'use, intrinsic :: ieee_features'
+   ##
+  'use, intrinsic :: iso_c_binding':
+    'prefix': 'use  '
+    'description': ' use intrinsic module'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'use, intrinsic :: iso_c_binding'
+   ##
+  'use, intrinsic :: iso_fortran_env':
+    'prefix': 'use '
+    'description': ' use intrinsic module'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'use, intrinsic :: iso_fortran_env'
+   ##
+  'use module, operator(a) => operator(b)':
+    'prefix': 'use'
+    'description': ' use statement with operator rename-list'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'use $1, operator($2) => operator($3)'
+   ##
+  'value':
+    'prefix': 'value'
+    'description': ' variable attribute advises that a copy of the actual argument should be made.'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'value $1'
+   ##
+  'verify (string,set [,back])':
+    'prefix': 'verify'
+    'description': ' this function returns the position of the leftmost character of STRING that is not in SET. If BACK equals TRUE, the rightmost position is returned.  verifies that all the characters in STRING belong to the set of characters in SET. '
+    'descriptionMoreURL': 'https://gcc.gnu.org/onlinedocs/gfortran/VERIFY.html#VERIFY'
+    'leftLabel': ''
+    'body': 'verify($1,$2)'
+   ##
+  'volatile':
+    'prefix': 'volatile'
+    'description': ' attribute of a variable indicates to the compiler that, at any time, the variable might be changed and/or examined from outside the Fortran program.'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'volatile $1'
+   ##
+  'wait(time [, end=, eor=, err=, iostat=])':
+    'prefix': 'wait'
+    'description': ' used to wait for an asynchronous data transfer to complete or it may be used to detect the completion status of an asynchronous data transfer statement (Fortran 2003)'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'wait($1)'
+   ##
+  'where ... endwhere':
+    'prefix': 'where  '
+    'description': ' simple statement for some masked array operations'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '''
+        where ($1)
+
+        endwhere
+    '''
+   ##
+  'where ... elsewhere endwhere':
+    'prefix': 'where '
+    'description': ' complete statement for some masked array operations'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '''
+        where ($1)
+
+        elsewhere
+
+        endwhere
+    '''
+   ##
+  'where':
+    'prefix': 'where'
+    'description': ' single statement for some masked array operations'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'where ($1 == $2)'
+   ##
+  'integer, parameter :: wp = kind(1.0d0)':
+    'prefix': 'wp'
+    'description': ' double working precision kind declaration'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'integer, parameter :: $1 = kind(1.0d0)'
+   ##
+  'use, intrinsic :: iso_fortran_env, wp=>real64   !double precision':
+    'prefix': 'wp '
+    'description': ' double working precision kind declaration'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'use, intrinsic :: iso_fortran_env, wp => real64   !double precision'
+   ##
+  'write(*,*)"____________________________________________________________"':
+    'prefix': 'write                   '
+    'description': 'write undescored line'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'write(*,*)"____________________________________________________________"'
+   ##
+  'write(output_unit,*) "WARNING, program reached the line",__LINE__," in file ",__FILE__':
+    'prefix': 'write                  '
+    'description': ' WARNING, debug, use ISO_FORTRAN_ENV'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'write(output_unit,*) "WARNING, program reached the line",__LINE__," in file ",__FILE__'
+   ##
+  'write(*,*) "___..."':
+    'prefix': 'write                 '
+    'description': 'write long ___ line'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'write(*,*) "___________________________________________________________________________________________________________________________________"'
+   ##
+  'write(*,*) "---..."':
+    'prefix': 'write                '
+    'description': 'write long --- line'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'write(*,*) "-----------------------------------------------------------------------------------------------------------------------------------"'
+   ##
+  'write(*,*) "===..."':
+    'prefix': 'write               '
+    'description': 'write long === line'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'write(*,*) "==================================================================================================================================="'
+   ##
+  'write(*,*)"Warning!  $1"':
+    'prefix': 'write              '
+    'description': ' write statement with simple warning'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'write(*,*)"Warning!  $1"'
+   ##
+  'write(*,*) "WARNING, program reached the line",__LINE__," in file ",__FILE__':
+    'prefix': 'write             '
+    'description': ' WARNING debug '
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'write(*,*) "WARNING, program reached the line",__LINE__," in file ",__FILE__'
+   ##
+  'write(error_unit,*)':
+    'prefix': 'write            '
+    'description': ' write to error_unit, use ISO_FORTRAN_ENV'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'write(error_unit,*) $1'
+   ##
+  'write(output_unit,*)':
+    'prefix': 'write           '
+    'description': ' write to output_unit, use ISO_FORTRAN_ENV'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'write(output_unit,*) $1'
+   ##
+  'write = scalar-default-char-variable':
+    'prefix': 'write          '
+    'description': ' specifier in the INQUIRE statement is assigned the value "YES" if WRITE is included in the set of allowed actions for the file, "NO" if not, or "UNKNOWN"'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'write=$1'
+   ##
+  'write(error_unit,*) "ERROR, program reach the line",__LINE__," in file ",__FILE__':
+    'prefix': 'write         '
+    'description': ' ERROR, debug, use ISO_FORTRAN_ENV'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'write(error_unit,*)  "ERROR, program reach the line",__LINE__," in file ",__FILE__'
+   ##
+  'write(*,*)':
+    'prefix': 'write        '
+    'description': ' simple write statement'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'write(*,*) $1'
+   ##
+  'write(*,*) "ERROR, program reach the line",__LINE__," in file ",__FILE__':
+    'prefix': 'write       '
+    'description': ' ERROR, debug and stop using PREPROCESSOR DIRECTIVES'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '''
+        write(*,*) "ERROR, program reached the line",__LINE__," in file ",__FILE__
+        stop $1
+    '''
+   ##
+  'write(unit= , fmt="()", iostat=ios, advance=\'NO\')':
+    'prefix': 'write      '
+    'description': ' write statement in non advancing mode'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '''
+        write(unit=$1, fmt="()", iostat=ios, advance='NO')
+        if(ios /= 0) stop "Write error in file unit $1"
+    '''
+   ##
+  'write(unit= , fmt=*)':
+    'prefix': 'write     '
+    'description': ' quick write statement'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'write(unit=$1, fmt=*) $2'
+   ##
+  'write(*, \'( "array =", *(g0," "))\') array':
+    'prefix': 'write    '
+    'description': ' write some array'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'write(*,\'( "$1 =", *(g0," "))\') $1'
+   ##
+  'write(*,\'(2x,A10,i2,A1,$)\') "step=", i,char(13)':
+    'prefix': 'write   '
+    'description': ' write simple PROGRESS INDICATOR in cycle'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'write(*,\'(2x,A10,i2,A1,$)\') "step=", i,char(13) $1'
+   ##
+  'write(*,*)"   "':
+    'prefix': 'write  '
+    'description': 'write empty line'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'write(*,*)"                                                            "'
+   ##
+  'write(*,*)"------------------------------------------------------------"':
+    'prefix': 'write '
+    'description': 'write dashed line'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'write(*,*)"------------------------------------------------------------"'
+   ##
+  'write(*,\'(1x,A10,f6.2,A1,A1,\$)\') "progress= ", 100.0*i/num_of_elements,"%",char(13)':
+    'prefix': 'write'
+    'description': ' display simple progress bar in percents'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': 'write(*,\'(1x,A10,f6.2,A1,A1,\$)\') "progress= ", 100.0*i/$1,"%",char(13)'
+   ##
+  'zmi_accuracy_module':
+    'prefix': 'zmi_accuracy_module'
+    'description': ' Module accuracy_module defines precision and some constants'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '''
+     !-----------------------------------------------------------------------
+     !Module accuracy defines precision and some constants
+     !-----------------------------------------------------------------------
+     module accuracy_module
+     implicit none
+
+     !integer number precision
+     integer, parameter :: isp  = selected_int_kind(9)
+     integer, parameter :: idp  = selected_int_kind(18)
+
+     ! real number precision
+     integer, parameter, public :: rsp = kind(1.0)
+     integer, parameter, public :: rdp = selected_real_kind(2*precision(1.0_rsp))
+     integer, parameter, public :: rqp = selected_real_kind(2*precision(1.0_rdp))
+     !or
+     !integer, parameter, public :: rsp = kind(1.0)
+     !integer, parameter, public :: rdp = kind(1.d0)
+     !or
+     !integer, parameter, public :: rsp = selected_real_kind(6, 37)
+     !integer, parameter, public :: rdp = selected_real_kind(15, 307)
+     !integer, parameter, public :: rqp = selected_real_kind(33, 4931)
+
+     ! complex number precision
+     integer, parameter   :: csp = kind((1.0,1.0))
+     integer, parameter   :: cdp = kind((1.0_rdp,1.0_rdp))
+     ! integer, parameter   :: cqp = kind((1.0_rqp,1.0_rqp))
+     ! constants
+     real(rdp), parameter :: pi=3.141592653589793238462643383279502884197_rdp
+     real(rdp), parameter :: pio2=1.57079632679489661923132169163975144209858_rdp
+     real(rdp), parameter :: twopi=6.283185307179586476925286766559005768394_rdp
+     real(rdp), parameter :: sqrt2=1.41421356237309504880168872420969807856967_rdp
+     real(rdp), parameter :: euler=0.5772156649015328606065120900824024310422_rdp
+
+     complex(cdp), parameter :: im=(0.0_rdp,1.0_rdp)
+     real(rdp), parameter :: oneotwenty=1.0_rdp/20.0_rdp
+     real(rdp), parameter :: half=0.5_rdp, zero=0.0_rdp, one=1.0_rdp
+     complex(cdp), parameter :: zero_c=(0.0_rdp,0.0_rdp)
+     end module accuracy_module
+    '''
+   ##
+  'zmi_accuracy_simple_module':
+    'prefix': 'zmi_accuracy_simple_module'
+    'description': ' define kind precision of basic types'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '''
+     !-----------------------------------------------------------------------
+     !Module accuracy_simple_module
+     !-----------------------------------------------------------------------
+     module accuracy_simple_module
+     implicit none
+     !integer number precision
+     integer, parameter :: isp  = selected_int_kind(9)
+     integer, parameter :: idp  = selected_int_kind(18)
+
+     ! real number precision
+     integer, parameter, public :: rsp = kind(1.0)
+     integer, parameter, public :: rdp = selected_real_kind(2*precision(1.0_rsp))
+     integer, parameter, public :: rqp = selected_real_kind(2*precision(1.0_rdp))
+     !or
+     !integer, parameter, public :: rsp = kind(1.0)
+     !integer, parameter, public :: rdp = kind(1.d0)
+     !or
+     !integer, parameter, public :: rsp = selected_real_kind(6, 37)
+     !integer, parameter, public :: rdp = selected_real_kind(15, 307)
+     !integer, parameter, public :: rqp = selected_real_kind(33, 4931)
+
+     ! complex number precision
+     integer, parameter   :: csp = kind((1.0,1.0))
+     integer, parameter   :: cdp = kind((1.0_rdp,1.0_rdp))
+
+     end module accuracy_simple_module
+    '''
+   ##
+  'zmi_comment_dummy':
+    'prefix': 'zmi_comment_dummy'
+    'description': ' dummy arguments'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '''
+     !-----------------------------------------------------------------------
+     !   D u m m y   A r g u m e n t s
+     !-----------------------------------------------------------------------
+     $1
+    '''
+   ##
+  'zmi_comment_external':
+    'prefix': 'zmi_comment_external'
+    'description': ' external functions'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '''
+     !-----------------------------------------------------------------------
+     !   E x t e r n a l   F u n c t i o n s
+     !-----------------------------------------------------------------------
+     $1
+    '''
+   ##
+  'zmi_comment_function':
+    'prefix': 'zmi_comment_function '
+    'description': ' function !---'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '''
+     !-----------------------------------------------------------------------
+     !Function $1
+     !-----------------------------------------------------------------------
+    '''
+   ##
+  'zmi_comment_function':
+    'prefix': 'zmi_comment_function'
+    'description': ' function !==='
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '''
+     !=======================================================================
+     !Function $1
+     !=======================================================================
+    '''
+   ##
+  'zmi_comment_header':
+    'prefix': 'zmi_comment_header     '
+    'description': ' header !---'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '''
+     !-----------------------------------------------------------------------
+     !
+     !-----------------------------------------------------------------------
+     $1
+    '''
+   ##
+  'zmi_comment_header':
+    'prefix': 'zmi_comment_header    '
+    'description': ' header !***'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '''
+     !***********************************************************************
+     !**                                                                   **
+     !***********************************************************************
+     $1
+    '''
+   ##
+  'zmi_comment_header':
+    'prefix': 'zmi_comment_header   '
+    'description': 'long comment header empty !==='
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '''
+        !==================================================================================================================================
+        !$1
+        !==================================================================================================================================
+    '''
+   ##
+  'zmi_comment_header':
+    'prefix': 'zmi_comment_header  '
+    'description': 'long comment header empty !---'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '''
+        !----------------------------------------------------------------------------------------------------------------------------------
+        !$1
+        !----------------------------------------------------------------------------------------------------------------------------------
+    '''
+   ##
+  'zmi_comment_header':
+    'prefix': 'zmi_comment_header '
+    'description': 'long comment header empty !___'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '''
+        !__________________________________________________________________________________________________________________________________
+        !$1
+        !__________________________________________________________________________________________________________________________________
+    '''
+   ##
+  'zmi_comment_header':
+    'prefix': 'zmi_comment_header'
+    'description': ' header !     ==='
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '''
+     !     =================================================================
+     !     ==                                                             ==
+     !     =================================================================
+     $1
+    '''
+   ##
+  'zmi_comment_intrinsic_functions':
+    'prefix': 'zmi_comment_intrinsic_functions'
+    'description': ' intrinsic functions'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '''
+     !-----------------------------------------------------------------------
+     !   I n t r i n s i c  F u n c t i o n s
+     !-----------------------------------------------------------------------
+     $1
+    '''
+   ##
+  'zmi_comment_line':
+    'prefix': 'zmi_comment_line     '
+    'description': ' line !***'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '''
+     !***********************************************************************
+     $1
+    '''
+   ##
+  'zmi_comment_line':
+    'prefix': 'zmi_comment_line    '
+    'description': ' line !---'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '''
+     !-----------------------------------------------------------------------
+     $1
+    '''
+   ##
+  'zmi_comment_line':
+    'prefix': 'zmi_comment_line   '
+    'description': 'long comment line !==='
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '!=================================================================================================================================='
+   ##
+  'zmi_comment_line':
+    'prefix': 'zmi_comment_line  '
+    'description': 'long comment line !---'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '!----------------------------------------------------------------------------------------------------------------------------------'
+   ##
+  'zmi_comment_line':
+    'prefix': 'zmi_comment_line '
+    'description': 'long comment line !___'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '!__________________________________________________________________________________________________________________________________'
+   ##
+  'zmi_comment_line':
+    'prefix': 'zmi_comment_line'
+    'description': 'long comment dotted line !...'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '!..................................................................................................................................'
+   ##
+  'zmi_comment_line_numbered':
+    'prefix': 'zmi_comment_line_numbered '
+    'description': ' line numbered !     ...1'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '''
+     !     ...1.........2.........3.........4.........5.........6.........7.........8
+     $1
+    '''
+   ##
+  'zmi_comment_line_numbered':
+    'prefix': 'zmi_comment_line_numbered'
+    'description': ' long numbered comment line'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '!     ...1.........2.........3.........4.........5.........6.........7.........8.........9.........0.........1.........2.........3'
+   ##
+  'zmi_comment_main':
+    'prefix': 'zmi_comment_main  '
+    'description': ' header main program ! ==='
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '''
+     ! ======================================================================
+     ! Name        : $1
+     ! Author      :
+     ! Version     :
+     ! Copyright   :
+     ! Description :
+     ! ======================================================================
+    '''
+   ##
+  'zmi_comment_main':
+    'prefix': 'zmi_comment_main '
+    'description': ' header main program 2 !---'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '''
+     !-----------------------------------------------------------------------
+     !Purpose: $1
+     !
+     !Record of revisions:
+     !Date   Programmer      Description of change
+     !-----------------------------------------------------------------------
+    '''
+   ##
+  'zmi_comment_main':
+    'prefix': 'zmi_comment_main'
+    'description': ' header main program 1 !---'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '''
+     !-----------------------------------------------------------------------
+     !Program:  $1
+     !Based on:
+     !Author:
+     !Version: 01  F90 code
+     !-----------------------------------------------------------------------
+    '''
+   ##
+  'zmi_comment_module':
+    'prefix': 'zmi_comment_module '
+    'description': ' module !==='
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '''
+     !=======================================================================
+     !Module $1
+     !=======================================================================
+    '''
+   ##
+  'zmi_comment_module':
+    'prefix': 'zmi_comment_module'
+    'description': ' module !---'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '''
+     !-----------------------------------------------------------------------
+     !Module $1
+     !-----------------------------------------------------------------------
+    '''
+   ##
+  'zmi_comment_parameters':
+    'prefix': 'zmi_comment_parameters'
+    'description': ' local parameters'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '''
+     !-----------------------------------------------------------------------
+     !   L o c a l   P a r a m e t e r s
+     !-----------------------------------------------------------------------
+     $1
+    '''
+   ##
+  'zmi_comment_subroutine':
+    'prefix': 'zmi_comment_subroutine '
+    'description': ' subroutine !==='
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '''
+     !=======================================================================
+     !Subroutine $1
+     !=======================================================================
+    '''
+   ##
+  'zmi_comment_subroutine':
+    'prefix': 'zmi_comment_subroutine'
+    'description': ' subroutine !---'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '''
+     !-----------------------------------------------------------------------
+     !Subroutine $1
+     !-----------------------------------------------------------------------
+    '''
+   ##
+  'zmi_comment_variables':
+    'prefix': 'zmi_comment_variables'
+    'description': ' local variables'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '''
+     !-----------------------------------------------------------------------
+     !   L o c a l   V a r i a b l e s
+     !-----------------------------------------------------------------------
+     $1
+    '''
+   ##
+  'zmi_cpu_time_interval_snippet':
+    'prefix': 'zmi_cpu_time_interval_snippet'
+    'description': ' measure elapsed time'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '''
+        integer, parameter :: wp = kind(1.0d0)
+        real(wp) :: start,finish
+        call cpu_time(start)
+        ! do something
+        $1
+        call cpu_time(finish)
+        write(*,*) "Elapsed time = ", finish-start, " ms"
+    '''
+   ##
+  'zmi_doxygen_date':
+    'prefix': 'zmi_doxygen_date'
+    'description': ' add doxygen date comment'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '''
+        !> @date
+    '''
+   ##
+  'zmi_doxygen_file':
+    'prefix': 'zmi_doxygen_file'
+    'description': ' add doxygen file comment'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '''
+        !-----------------------------------------------------------------------
+        !> @file
+        !> @author $1
+        !> @date
+        !
+        !  This file is part of project
+        !  Copyright (C) 2016 $1
+        !-----------------------------------------------------------------------
+    '''
+   ##
+  'zmi_doxygen_module':
+    'prefix': 'zmi_doxygen_module'
+    'description': ' add doxygen module comment'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '''
+        !-----------------------------------------------------------------------
+        !> @brief
+        !>
+        !
+        !> Here follows detailed description
+        !> @author $1
+        !
+        !> @par Licensing
+        !
+        !
+        !> @par REVISION HISTORY:
+        !> dd_mmm_yyyy - version and changes
+        !
+        !> @note NOTE:
+        !> @todo TODO:
+        !> @warning WARNING:
+        !> @bug BUG:
+        !-----------------------------------------------------------------------
+    '''
+   ##
+  'zmi_doxygen_module':
+    'prefix': 'zmi_doxygen_module '
+    'description': ' add doxygen module simple comment'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '''
+        !-----------------------------------------------------------------------
+        !Module
+        !> @brief
+        !
+        !>
+        !
+        !> @note NOTE:
+        !> @todo TODO:
+        !> @warning WARNING:
+        !> @bug BUG:
+        !-----------------------------------------------------------------------
+    '''
+   ##
+  'zmi_doxygen_routine':
+    'prefix': 'zmi_doxygen_routine'
+    'description': ' add doxygen routine simple comment'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '''
+        !-----------------------------------------------------------------------
+        !  Routine description:
+        !> @brief
+        !
+        !> @param[in]
+        !> @param[out]
+        !> @param[inout]
+        !> @return routine value:
+        !> @note NOTE:
+        !  REVISION HISTORY:
+        !
+        !-----------------------------------------------------------------------
+    '''
+   ##
+  'zmi_doxygen_routine':
+    'prefix': 'zmi_doxygen_routine '
+    'description': ' '
+    'descriptionMoreURL': ' add doxygen routine comment'
+    'leftLabel': ''
+    'body': '''
+        !-----------------------------------------------------------------------
+        !  Routine description:
+        !> @brief
+        !> @description
+        !> @param[in]
+        !> @param[out]
+        !> @param[inout]
+        !> @return
+        !> @exception
+        !> @see
+        !> @author
+        !> @since
+        !> @note some note
+        !  REVISION HISTORY:
+        !
+        !-----------------------------------------------------------------------
+    '''
+   ##
+  'zmi_get_urandom_seed(answer_code)':
+    'prefix': 'zmi_get_urandom_seed'
+    'description': ' function gets random seed using linux /dev/urandom'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '''
+        function get_urandom_seed(answer_code)
+        use, intrinsic :: iso_fortran_env
+        implicit none
+        integer, optional, intent(out) :: answer_code
+        integer :: get_urandom_seed
+        character(len=*), parameter :: RANDOM_PATH = "/dev/urandom"
+        integer :: funit, ios
+
+        answer_code = 0
+        open(newunit=funit, file=RANDOM_PATH, access="stream", form="UNFORMATTED", &
+        iostat=ios, status="old", action="read")
+        if ( ios /= 0 ) then
+            write(error_unit,*) "Error opening file: "//RANDOM_PATH
+            if(present(answer_code)) answer_code = 1
+        endif
+        read(funit) get_urandom_seed
+        close(funit)
+        end function get_urandom_seed
+    '''
+   ##
+  'zmi_show_compiler_version_and_options_subroutine()':
+    'prefix': 'zmi_show_compiler_version_and_options_subroutine'
+    'description': ' show compiler_version and compiler_options'
+    'descriptionMoreURL': ''
+    'leftLabel': ''
+    'body': '''
+        subroutine show_compiler_version_and_options()
+        use, intrinsic :: iso_fortran_env
+        implicit none
+            !wait until intel implements these intrinsic functions (F2008)
+        #ifdef __INTEL_COMPILER
+            write  (output_unit,'(A,I5,I9)') " Compiler version: ifort (IFORT) ", __INTEL_COMPILER, __INTEL_COMPILER_BUILD_DATE
+        #else
+            !with gfortran>4.6
+            write(output_unit,*)" Compiler version: ",compiler_version()
+            write(output_unit,*)" Compiler options: ",compiler_options()
+        #endif
+            write(output_unit,*)"____________________________________________________________"
+        end subroutine show_compiler_version_and_options
+    '''
